@@ -7,8 +7,8 @@
  * # MainCtrl
  * Controller of the dfgApp
  */
-angular.module('dfgApp')
-  .controller('MainCtrl', function () {
+angular.module('myApp1')
+  .controller('news', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
