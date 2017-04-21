@@ -13,27 +13,27 @@ angular.module('myApp', ['ui.router']).config(["$stateProvider","$urlRouterProvi
   	  	url:"/home",
   	  	templateUrl:"views/homepage.html"
   	  })
-  	  .start("details",{
+  	  .state("details",{
   	  	url:"/details",
   	  	templateUrl:"views/details.html"
   	  })
-  	  .start("examine",{
+  	  .state("examine",{
   	  	url:"/examine",
   	  	templateUrl:"views/examine.html"
   	  })
-  	   .start("information",{
+  	   .state("information",{
   	  	url:"/information",
   	  	templateUrl:"views/information.html"
   	  })
-  	  .start("messages",{
+  	  .state("messages",{
   	  	url:"/messages",
   	  	templateUrl:"views/messages.html"
   	  })
-  	  .start("personal",{
+  	  .state("personal",{
   	  	url:"/personal",
   	  	templateUrl:"views/personal.html"
   	  })
-  	  .start("search",{
+  	  .state("search",{
   	  	url:"/search",
   	  	templateUrl:"views/search.html"
   	  })
