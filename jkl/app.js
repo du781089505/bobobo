@@ -12,7 +12,7 @@ var app = express();
 
 
 //设置全局跨域
-   app.all('*', function(req, res, next) {
+  app.all('*', function(req, res, next) {
        res.header("Access-Control-Allow-Origin", "*");
        res.header("Access-Control-Allow-Headers", "X-Requested-With");
        res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/list', homepage);
+app.use('/homepage', homepage);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -53,5 +53,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+app.listen("1235",function(){
+	console.log("server start .......")
+})
 module.exports = app;
