@@ -37,5 +37,5 @@ angular.module('myApp', ['ui.router']).config(["$stateProvider","$urlRouterProvi
   	  	url:"/search",
   	  	templateUrl:"views/search.html"
   	  })
-  	  $urlRouterProvider.otherwise("/home")
+  	  $urlRouterProvider.otherwise("/messages")
   }])
