@@ -1,7 +1,9 @@
 
 	
+<div ng-controller="homeCtrl">
+	
 
-<div class="wrapper_home" ng-controller="homeCtrl">
+<div class="wrapper_home" >
 	<div id="header">
 		<div class="wrap">
 			<i class="menu_open"></i>
@@ -69,10 +71,10 @@
 	</div>
 	<div class="home_content_right">
 		<div ng-repeat="a in arr">
-			<p>发布人：{{a.name}}</p>
-            <p>标题{{a.name}}</p>
-            <p>内容{{a.name}}</p>
-            <p>发布时间:{{a.name}}</p>
+			<p>发布人：{{a.id}}</p>
+            <p>标题{{a.id}}</p>
+            <p>内容{{a.id}}</p>
+            <p>发布时间:{{a.id}}</p>
 		</div>
 	</div>
 </div>	
@@ -176,15 +178,15 @@
 				<form method="post" action="">
 					<div class="login_b_i">
 						<div class="login_input">
-							<div class="login_user"><input type="text" name="email" placeholder="邮箱/帐号" /><i></i></div>
-							<div class="login_password"><input type="password" name="password" placeholder="密码" /><i></i></div>
+							<div class="login_user"><input type="text" name="email" placeholder="邮箱/帐号" ng-model="username"/><i></i></div>
+							<div class="login_password"><input type="password" name="password" placeholder="密码" ng-model="password"/><i></i></div>
 						</div>
 					</div>
-					<a class="login_submit">登录</a>
+					<a class="login_submit"">登录</a>
 				</form>
 			</div>
 		</div>	
-		
+		</div>
 <script>
     var n=true;
     $(".menu_open").click(function(){
@@ -208,4 +210,5 @@
     	m=true;
     }	
 	})
+
 </script>		
