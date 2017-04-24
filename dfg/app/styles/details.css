@@ -217,3 +217,17 @@ i.cate_sort {
 #comment ul li .avt img {
 	width: 100%
 }
+
+.comment_content {
+	margin-left: 40px;
+	font-size: 12px;
+	line-height: 18px
+}
+#comment h4 {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 500;
+    text-indent: 10px;
+    font-size: 11px;
+}
