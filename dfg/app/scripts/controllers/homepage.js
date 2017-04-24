@@ -18,6 +18,8 @@
 	$scope.tishi = false;
 	$scope.tishi1 = false;
 	$scope.tishi2 = false;
+	$scope.zhuce1 = false;
+	$scope.zhuce2 = false;
 	$scope.t =function(){
 		if($scope.e =="1"){
 			$scope.x = false;
@@ -51,12 +53,34 @@
 			}
 		}).then(function(data){
 		  if(data.data.flag == 1){
-//		  	$scope.tishi = true;
-		  	angular.element('.denglu').css({"display":"block"});
+		  	$scope.tishi = true;
+		  	
 		  }else if(data.data.flag == 2){
 		  	$scope.tishi1 = true;
 		  }else if(data.data.flag == 3){
 		  	$scope.tishi2 = true;
+		  }
+			
+			
+		})
+		}
+		//注册
+		$scope.zc = function(){
+			$http({
+			url:"http://"+ip+"/homepage/zhuce",
+			method:"post",
+			data:"username="+$scope.uname+"&password="+$scope.pas+"&name="+$scope.name+"&age="+$scope.age+"&tel="+$scope.tel+"&qq="+$scope.qq+"&status="+0,
+
+			headers:{
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+		}).then(function(data){
+		  if(data.data.flag == 1){
+	  	$scope.zhuce1 = true;
+		  }else if(data.data.flag == 2){
+		  	$scope.zhuce2 = true;
+		  }else if(data.data.flag == 3){
+		      console.log("失败")
 		  }
 			
 			
