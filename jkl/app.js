@@ -53,7 +53,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.listen("1235",function(){
+app.listen("1234",function(){
 	console.log("server start .......")
 })
 module.exports = app;

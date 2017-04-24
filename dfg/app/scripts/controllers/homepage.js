@@ -28,7 +28,7 @@
 		
 	}
 	$http({
-			url:"http://192.168.43.245:1235/homepage/list",
+			url:"http://192.168.43.149:1234/homepage/list",
 			method:"get"
 		}).then(function(data){
 			console.log(data.data)
@@ -39,7 +39,7 @@
 		$scope.denglu = function(){
 			console.log("1")
 			$http({
-			url:"http://192.168.43.245:1235/homepage/login",
+			url:"http://192.168.43.149:1234/homepage/login",
 			method:"post",
 			data:{
 				username:$scope.username,
