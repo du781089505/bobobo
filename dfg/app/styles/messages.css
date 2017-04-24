@@ -213,7 +213,7 @@ i.cate_sort {
 #messages{
 	width:100%;
 /*	background: url(../images/personal_beijing.jpg) no-repeat;*/
-	height:1500px;
+	overflow: hidden;
 	background:#ebe7dd;
 }
 .messages_mian{
@@ -237,7 +237,6 @@ i.cate_sort {
 .messages_mian ul{
 	clear: both;
     font-size: 16px;
-    border: 1px solid;
     width: 600px;
     margin: 0 auto;
     margin-top: 73px;
@@ -250,15 +249,21 @@ i.cate_sort {
 	text-align: right;
 	margin-right:60px;
 }
-.messages_mian ul li a{
-	display: block;
-	width:350px;
-	text-align: left;
-	margin-left:60px;
-	text-overflow: ellipsis;
-	height:24px;
+.messages_mian ul li p{
+    width: 350px;
+    text-align: left;
+    margin-left: 60px;
+    text-overflow: ellipsis;
+    height: 24px;
+    overflow: hidden;
 }
-
+.messages_mian div{
+	width:170px;
+	margin: 0 auto;
+}
+.messages_mian div button:first-child{
+	margin-right:40px;
+}
 
 
 
