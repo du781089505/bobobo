@@ -531,6 +531,7 @@ i.cate_sort {
 .home_content{
 	width:100%;
 	height:calc(100vh - 100px);
+	background:#A6E1EC;
 	overflow:hidden;
 	position:relative;
 }
@@ -957,9 +958,6 @@ i.cate_sort {
 	margin-top: 13.5px;
 	color: #fffae7;
 	font-size: 11px;
-	-o-border-radius: 7px;
-	-moz-border-radius: 7px;
-	-webkit-border-radius: 7px;
 	border-radius: 7px
 }
 
@@ -969,17 +967,11 @@ i.cate_sort {
 }
 
 #header {
-	-webkit-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-	-moz-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-	-o-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 	transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)
 }
 
 #us_panel.hide {
 	transform: translateY(125px);
-	-moz-transform: translateY(125px);
-	-webkit-transform: translateY(125px);
-	-o-transform: translateY(125px)
 }
 
 .search_wrap {
@@ -1589,4 +1581,77 @@ i.sort_com {
 .login_b_i {
 	margin-bottom: 10px;
 	background: #fff
+}
+.denglu{
+	width:300px;
+	height: 200px;
+	border: 1px solid #333;
+	position:fixed;
+	background:white;
+	font-weight:bold;
+	top:calc(50% - 100px);
+	left:calc(50% - 150px);
+	z-index: 999999999;
+}
+.denglu>p{
+	width:100%;
+	height:140px;
+	text-align: center;
+    line-height:140px;
+    font-size:20px;
+    color:black;
+}
+.denglu>button{
+	margin:0px auto;
+	display: block;
+	margin-top:-20px;
+}
+.denglu1{
+	width:300px;
+	height: 200px;
+	border: 1px solid #333;
+	position:fixed;
+	display: none;
+	background:white;
+	font-weight:bold;
+	top:calc(50% - 100px);
+	left:calc(50% - 150px);
+	z-index: 999999999;
+}
+.denglu1>p{
+	width:100%;
+	height:140px;
+	text-align: center;
+    line-height:140px;
+    font-size:20px;
+    color:black;
+}
+.denglu1>button{
+	margin:0px auto;
+	display: block;
+	margin-top:-20px;
+}
+.denglu2{
+	width:300px;
+	height: 200px;
+	border: 1px solid #333;
+	position:fixed;
+	background:white;
+	font-weight:bold;
+	top:calc(50% - 100px);
+	left:calc(50% - 150px);
+	z-index: 999999999;
+}
+.denglu2>p{
+	width:100%;
+	height:140px;
+	text-align: center;
+    line-height:140px;
+    font-size:20px;
+    color:black;
+}
+.denglu2>button{
+	margin:0px auto;
+	display: block;
+	margin-top:-20px;
 }
