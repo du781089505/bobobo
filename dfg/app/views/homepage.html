@@ -1,4 +1,7 @@
-<div class="wrapper_home">
+
+	
+
+<div class="wrapper_home" ng-controller="homeCtrl">
 	<div id="header">
 		<div class="wrap">
 			<i class="menu_open"></i>
@@ -65,11 +68,11 @@
 		</div>
 	</div>
 	<div class="home_content_right">
-		<div>
-			<p>发布人：</p>
-            <p>标题</p>
-            <p>内容</p>
-            <p>发布时间:</p>
+		<div ng-repeat="a in arr">
+			<p>发布人：{{a.name}}</p>
+            <p>标题{{a.name}}</p>
+            <p>内容{{a.name}}</p>
+            <p>发布时间:{{a.name}}</p>
 		</div>
 	</div>
 </div>	
@@ -181,6 +184,7 @@
 				</form>
 			</div>
 		</div>	
+		
 <script>
     var n=true;
     $(".menu_open").click(function(){

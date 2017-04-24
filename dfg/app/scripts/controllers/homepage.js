@@ -9,3 +9,6 @@
  * Main module of the application.
  */
   angular.module('myApp')
+.controller('homeCtrl', function($scope,$http,$state){
+	
+})
