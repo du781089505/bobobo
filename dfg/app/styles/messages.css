@@ -23,7 +23,7 @@
 .logo_msk {
 	width: 100%;
 	height: 100%;
-	background: #3e4042 url('../images/backface.png') no-repeat 50% 50%;
+/*	background: #3e4042 url('../images/backface.png') no-repeat 50% 50%;*/
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -163,9 +163,9 @@ i.cate_sort {
 	height: 40px;
 	display: block;
 	float: left;
-	background: url('slide.png') no-repeat 0 0;
+	background: url('../images/slide.png') no-repeat 0 0;
 	padding-right: 19px;
-	background: url('slide.png') no-repeat 100% 50%;
+	background: url('../images/slide.png') no-repeat 100% 50%;
 	background-size: 9px 4.5px;
 	overflow: hidden
 }
