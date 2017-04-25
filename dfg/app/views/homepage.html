@@ -1,6 +1,6 @@
 
 	
-<div ng-controller="homeCtrl">
+<div ng-controller="homeCtrl" class="box">
 	
 
 <div class="wrapper_home" >
@@ -186,6 +186,33 @@
 			</ul>
 		</div>
 	</div>
+			<div id="reg_index">
+		<div class="reg_bar">
+			<div class="wrap">
+				<span class="fl"><i></i>注册帐号</span>
+				<i class="reg_bar_close fr"></i>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="wrap reg_ct">
+			
+			<div class="zhuce">
+				<ul>
+					<li>账&#x3000;号: <input type="text" ng-model="uname"/></li>
+					<li>密&#x3000;码: <input type="password" ng-model="pas"/></li>
+					<li>昵&#x3000;称: <input type="text" ng-model="name"/></li>
+					<li>年&#x3000;龄: <input type="text" ng-model="age"/></li>
+					<li>手机号: <input type="tel" ng-model="tel"/></li>
+					<li>QQ号 : <input type="text" ng-model="qq"/></li>
+					
+				</ul>
+				<button ng-click="zc()">完成</button>
+				
+				
+			</div>
+		</div>
+	</div>
+	
 </div> 
 <div id="menu">
 		<div class="search_wrap">
@@ -204,7 +231,7 @@
 		<div class="account">
 				<div class="login_b_t">
 					<div class="pd10">
-						<div class="fl">还没有账号<a id="reg_now" href="" onclick="return false;">立即注册</a></div><div class="clear"></div>
+						<div class="fl">还没有账号<a id="reg_now" href="" >立即注册</a></div><div class="clear"></div>
 					</div>
 				</div>
 			</div>
@@ -222,8 +249,8 @@
 					
 				</form>
 			</div>
-		</div>	
-		<div class="denglu" ng-show="tishi">
+	</div>	
+		<div class="denglu" id="denglu" ng-show="tishi">
 			<p>登陆成功</p>
 			<button class="queding" ng-model="xi" >确定</button>
 		</div>
@@ -235,8 +262,23 @@
 			<p>密码错误</p>
 			<button class="queding2" >确定</button>
 		</div>
+		<div class="zhuce1" ng-show="zhuce1">
+			<p>账号已存在</p>
+			<button class="queding3" >确定</button>
+		</div>
+		<div class="zhuce2" ng-show="zhuce2">
+			<p>注册成功</p>
+			<button class="queding4" >确定</button>
+		</div>
 		</div>
 <script>
+	$(".reg_bar_close").click(function(){
+		$("#reg_index").css({"top":"0px"})
+	})
+	$("#reg_now").click(function(){
+		$("#reg_index").css({"top":"-100vh"})
+		
+	})
     var n=true;
     $(".menu_open").click(function(){
     if(n){
@@ -256,6 +298,11 @@
     $(".queding1").click(function(){
     	
     	$(".denglu1").css({"display":"none"})
+    	
+    })
+    $(".queding3").click(function(){
+    	
+    	$(".zhuce1").css({"display":"none"})
     	
     })
     $(".queding2").click(function(){
