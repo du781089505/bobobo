@@ -231,3 +231,10 @@ i.cate_sort {
     text-indent: 10px;
     font-size: 11px;
 }
+.comment_content h5 {
+    display: block;
+    font-weight: 500;
+    height: 25px;
+    line-height: 20px;
+    overflow: hidden;
+}
