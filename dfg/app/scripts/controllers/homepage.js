@@ -28,6 +28,14 @@
 			$scope.x = false;
 	       $scope.a = true;
 	       $scope.e ="2";
+	          $http({
+					url: "http://" + ip + "/homepage/cha",
+					method: "get"
+				}).then(function(data) {
+						console.log(data.data)
+					$scope.arr1=data.data	
+
+				})
 		}else if($scope.e =="2"){
 			$scope.x = true;
 	       $scope.a = false;
