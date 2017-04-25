@@ -4,8 +4,8 @@ var router = express.Router();
 var pool = mysql.createPool({
 	host:'127.0.0.1',
 	user:'root',
-	password:'du960510',
-	database:'shuju',
+	password:'root',
+	database:'news',
 	port:3306
 })
 
@@ -14,7 +14,7 @@ var pool = mysql.createPool({
 
          //获取列表信息
 router.get('/list',function(req,res){
-//     console.log("login")
+       console.log("login")
 	getuserName(function(err,rest){
 		if(err){
 			res.send(err)
@@ -28,11 +28,11 @@ router.get('/list',function(req,res){
 
 function getuserName(callback){
 	pool.getConnection(function(err,conn){ //获取连接
-		var sql ='select * from user ';
+		var sql ='select * from content ';
 		conn.query(sql,function(err,result){
 //			console.log(result)
 			if(err){
-//				console.log("getAllUser Eroor:"+err.message)
+				console.log("getAllUser Eroor:"+err.message)
 				return
 			}
 			conn.release()  //释放连接
@@ -46,11 +46,12 @@ router.post('/login',function(req,res){
        console.log("login-----")
 	var username = req.body.username;
 	var password = req.body.password
-
+  console.log(username,password)
 	getLogin(username,function(err,rest){
 		if(rest.length==0){
 			res.send({flag:2})     //账号不存在
 		}else if(rest.length>0){
+			console.log("ddddddd")
 			if(password ==rest[0].password){
 				res.send({flag:1})  //登陆成功
 			}else if(password !=rest[0].password){
@@ -67,7 +68,7 @@ function getLogin(uname,callback){
 	pool.getConnection(function(err,conn){ //获取连接
 		var sql ='select * from user where username =?';
 		conn.query(sql,[uname],function(err,result){
-//			console.log(result)
+			console.log(result)
 			if(err){
 //				console.log("getAllUser Eroor:"+err.message)
 				return
@@ -108,7 +109,7 @@ function getuserZhce(uname,callback){
 		conn.query(sql,[uname],function(err,result){
 //			console.log(result)
 			if(err){
-//				console.log("getAllUser Eroor:"+err.message)
+				console.log("getAllUser Eroor:"+err.message)
 				return
 			}
 			conn.release()  //释放连接
@@ -122,7 +123,7 @@ function save(name,pad,tel,qq,name,age,callback){
 		conn.query(sql,[name,pad,tel,qq,name,age],function(err,result){
 			console.log(result)
 			if(err){
-//				console.log("insertUser Eroor:"+err.message)
+				console.log("insertUser Eroor:"+err.message)
 				return
 			}
 			conn.release()  //释放连接
