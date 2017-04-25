@@ -221,10 +221,10 @@ function cha(con,cott,callback){
 
 //  关键字搜索的  搜索内容的
 
- router.get('/search',function(req,res){
-	var content=req.query.con;
-     console.log(content)
-    search(content,function(err,result){
+router.get('/search',function(req,res){
+	var conten=req.query.conppp;
+     console.log(conten)
+    search(conten,function(err,result){
     	 if(err){
 			res.send(err);
 		}else if(result){
@@ -235,10 +235,10 @@ function cha(con,cott,callback){
 })
 
 
-function search(con,callback){
+function search(conp,callback){
 	pool.getConnection(function(err,conn){
 		var search_sql="select * from content where title like ? or content like ?";
-		conn.query(search_sql,['%'+con+'%','%'+con+'%'],function(err,result){ 
+		conn.query(search_sql,['%'+conp+'%','%'+conp+'%'],function(err,result){ 
 			console.log("result:"+result)
                 console.log(213313123)
 			if(err){
@@ -250,6 +250,40 @@ function search(con,callback){
 		})
 	})
 }
+
+
+/////////////////////////查询
+
+router.get('/chaa',function(req,res){
+	var cp=req.query.conten;
+     console.log(cp)
+    chaa(cp,function(err,result){
+    	 if(err){
+			res.send(err);
+		}else if(result){
+			console.log('ttototo'+result);
+			res.send(result)
+		}
+    })
+})
+
+
+function chaa(cp,callback){
+	pool.getConnection(function(err,conn){
+		var chaa_sql='select * from content where fenlei=?' ;
+		conn.query(chaa_sql,[cp],function(err,result){ 
+			console.log("result:"+result)
+                console.log(1111111111)
+			if(err){
+				console.log("chaa Error:"+err.message);
+				return;
+			}
+			conn.release();  //释放连接
+			callback(err,result)
+		})
+	})
+}
+
 
 
 /* GET home page. */
