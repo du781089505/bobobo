@@ -1,6 +1,9 @@
 var express = require('express');
 var mysql = require('mysql');
 var router = express.Router();
+
+
+
 var pool = mysql.createPool({
 	host:'127.0.0.1',
 	user:'root',
@@ -9,10 +12,10 @@ var pool = mysql.createPool({
 	port:3306
 })
 
-/* GET home page. */
 
 
-         //获取列表信息
+    //获取列表信息  获取的是内容的列表
+    
 router.get('/list',function(req,res){
        console.log("login")
 	getuserName(function(err,rest){
@@ -40,7 +43,10 @@ function getuserName(callback){
 		})
 	})
 }
-    //登录
+
+
+
+    //登录   个人信息的
     
 router.post('/login',function(req,res){
        console.log("login-----")
@@ -80,18 +86,21 @@ function getLogin(uname,callback){
 }
 
 
-//注册
+//注册    个人信息的
 
 router.post('/zhuce',function(req,res){
-
+	console.log(1111111)
 	var username = req.body.username;
-	var password = req.body.password
-	var tel = req.body.tel
-	var email = req.body.email
-	
+	var password = req.body.password;
+	var tel = req.body.tel;
+	var qq = req.body.qq;
+	var name= req.body.name;
+	var age = req.body.age;
+	var status = req.body.status;
+	console.log(username,password,tel,qq,name,age,status)
 	getuserZhce(username,function(err,rest){
 		if(rest ==""||rest == null){
-			save(username,password,tel,qq,name,age,function(err,resl){
+			save(username,password,tel,qq,name,age,status,function(err,resl){
 				console.log('dddd'+resl)
 				res.send({flag:1})  //注册成功
 			})
@@ -117,10 +126,10 @@ function getuserZhce(uname,callback){
 		})
 	})
 }
-function save(name,pad,tel,qq,name,age,callback){
+function save(username,pad,tel,qq,name,age,status,callback){
 	pool.getConnection(function(err,conn){ //获取连接
-		var sql ='insert into user(username,password,tel,qq,name,age) value (?,?,?,?,?,?)';
-		conn.query(sql,[name,pad,tel,qq,name,age],function(err,result){
+		var sql ='insert into user(username,password,tel,qq,name,age,status) value (?,?,?,?,?,?,?)';
+		conn.query(sql,[username,pad,tel,qq,name,age,status],function(err,result){
 			console.log(result)
 			if(err){
 				console.log("insertUser Eroor:"+err.message)
@@ -132,4 +141,116 @@ function save(name,pad,tel,qq,name,age,callback){
 	})
 }
 
+//修改 个人信息
+
+router.post('/xiugai',function(req,res){
+	var id=req.body.id;//这儿的 body是后台post 的用法  并且 body后面的id是自己在页面中冒号前面的
+	var password=req.body.password;
+	var tel=req.body.tel;
+	var qq=req.body.qq;
+	var name=req.body.name;
+	var age=req.body.age;
+	console.log(id)
+	console.log(password,tel,qq,name,age)
+	gai(id,password,tel,qq,name,age,function(err,result){ //这儿是往下面传参的
+        if(err){
+			res.send(err);
+		}
+        if(result.changedRows > 0){//判断修改的行数     如数据没有修改changedRows为0
+			res.send({flag:1})
+		}else if(err){
+			res.send({flag:2})
+		}else {
+			res.send({flag:3})
+		}
+		
+	 })
+})
+
+function gai(id,password,tel,qq,name,age,callback){//这儿接收上面的传参
+	pool.getConnection(function(err,conn){
+		var gai_sql='update userbiao set password=?,tel=?,qq=?,name=?,age=? where id = ?';
+		conn.query(gai_sql,[password,tel,qq,name,age,id],function(err,result){ 
+			console.log("result:"+result)
+			if(err){
+				console.log("gai Error:"+err.message);
+				return;
+			}
+			conn.release();  //释放连接
+			callback(err,result)
+		})
+	})
+}
+
+
+
+
+//查询  内容最新10条的
+router.get('/cha',function(req,res){
+	var content=0;
+	var cott=10;
+     console.log(content)
+    cha(content,cott,function(err,result){
+    	 if(err){
+			res.send(err);
+		}else if(result){
+			console.log('ttototo'+result);
+			res.send(result)
+		}
+    })
+})
+
+
+function cha(con,cott,callback){
+	pool.getConnection(function(err,conn){
+		var cha_sql="select * from content order by uid desc limit ?,?";
+		conn.query(cha_sql,[con,cott],function(err,result){ 
+			console.log("result:"+result)
+                console.log(213313123)
+			if(err){
+				console.log("cha Error:"+err.message);
+				return;
+			}
+			conn.release();  //释放连接
+			callback(err,result)
+		})
+	})
+}
+
+
+
+//  关键字搜索的  搜索内容的
+
+ router.get('/search',function(req,res){
+	var content=req.query.con;
+     console.log(content)
+    search(content,function(err,result){
+    	 if(err){
+			res.send(err);
+		}else if(result){
+			console.log('ttototo'+result);
+			res.send(result)
+		}
+    })
+})
+
+
+function search(con,callback){
+	pool.getConnection(function(err,conn){
+		var search_sql="select * from content where title like ? or content like ?";
+		conn.query(search_sql,['%'+con+'%','%'+con+'%'],function(err,result){ 
+			console.log("result:"+result)
+                console.log(213313123)
+			if(err){
+				console.log("search Error:"+err.message);
+				return;
+			}
+			conn.release();  //释放连接
+			callback(err,result)
+		})
+	})
+}
+
+
+/* GET home page. */
 module.exports = router;

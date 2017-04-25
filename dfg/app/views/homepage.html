@@ -93,51 +93,21 @@
 		</div>
 	</div>
 	<div class="home_content_right" ng-show="x">
-		
-		<!--<div>
-			<p>发布人：杜江</p>
-            <p>标题：HTML5 为什么只需要写<!DOCTYPE html></p>
-            <p>内容：HTML5不基于SGML,因此不需要对DTD进行引用，但是需要doctype 来规范浏览器的行为（让浏览器按照它们应该的方式来运行）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。</p>
-            <p>发布时间:2017.4.23</p>
-		</div>
-		<div>
-			<p>发布人：杜江</p>
-            <p>标题：HTML5 为什么只需要写<!DOCTYPE html></p>
-            <p>内容：HTML5不基于SGML,因此不需要对DTD进行引用，但是需要doctype 来规范浏览器的行为（让浏览器按照它们应该的方式来运行）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。</p>
-            <p>发布时间:2017.4.23</p>
-		</div>
-		<div>
-			<p>发布人：杜江</p>
-            <p>标题：HTML5 为什么只需要写<!DOCTYPE html></p>
-            <p>内容：HTML5不基于SGML,因此不需要对DTD进行引用，但是需要doctype 来规范浏览器的行为（让浏览器按照它们应该的方式来运行）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。</p>
-            <p>发布时间:2017.4.23</p>
-		</div>
-		<div>
-			<p>发布人：杜江</p>
-            <p>标题：HTML5 为什么只需要写<!DOCTYPE html></p>
-            <p>内容：HTML5不基于SGML,因此不需要对DTD进行引用，但是需要doctype 来规范浏览器的行为（让浏览器按照它们应该的方式来运行）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。</p>
-            <p>发布时间:2017.4.23</p>
-		</div>
-		<div>
-			<p>发布人：杜江</p>
-            <p>标题：HTML5 为什么只需要写<!DOCTYPE html></p>
-            <p>内容：HTML5不基于SGML,因此不需要对DTD进行引用，但是需要doctype 来规范浏览器的行为（让浏览器按照它们应该的方式来运行）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。</p>
-            <p>发布时间:2017.4.23</p>
-       </div>-->
 		<div ng-repeat="a in arr">
 			<p><img alt="" />发布人：{{a.id}}</p>
 			<p>类型 : {{a.fenlei}}</p>
             <p>标题{{a.title}}</p>      
             <p>内容{{a.content}}</p>
-            <p>发布时间:{{a.time | date:"yyyy-M-d hh:mm:ss  MMMM"}}</p>
+            <p>发布时间:{{a.time | date:"yyyy-M-d hh:mm:ss"}}</p>
 		</div>
 	</div>
 	<div ng-show="a">
-		<div ng-repeat="a in arr">
-			<p><img alt="" />发布：{{a.id}}</p>
-            <p>标{{a.id}}</p>
-            <p>内容{{a.id}}</p>
-            <p>发布时间:{{a.id}}</p>
+		<div ng-repeat="a1 in arr1">
+			<p><img alt="" />发布：{{a1.id}}</p>
+			<p>类型 : {{a1.fenlei}}</p>
+            <p>标题{{a1.title}}</p>
+            <p>内容{{a1.contents}}</p>
+            <p>发布时间:{{a1.time | date:"yyyy-M-d hh:mm:ss"}}</p>
 		</div>
 	</div>
 		
