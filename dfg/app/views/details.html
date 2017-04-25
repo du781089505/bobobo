@@ -1,13 +1,13 @@
-<div id="details">
-	<div id="header" class="head">
+<div id="details" ng-controller="detailsCtrl">
+	<div id="header">
 		<div class="wrap">
-			<i class="menu_back"><a href="index.html"></a></i>
-			<div class="title">
-				<span class="title_d"><p>UEMO用户图片排序问题</p></span>
-				<div class="clear"></div>
+			<i class="menu_open"></i>
+			<div class="logo">
+				<a><img src="images/logo.png" /></a>
 			</div>
-			<i class="menu_share"></i>
+			<i class="search_open"></i>
 		</div>
+		<div class="logo_msk"></div>
 	</div>
 	<div id="works">
 		<div class="pd5">
@@ -38,11 +38,11 @@
 
 			<div class="clear"></div>
 			<div class="details_mian">
-					<h2>这里是标题</h2>
-					<p><b>这是发表者</b></p>
-					<p class="details_content">
-						这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！
-					</p>
+				<h2>这里是标题</h2>
+				<p><b>这是发表者</b></p>
+				<p class="details_content">
+					这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！这里就是内容啦！！！
+				</p>
 			</div>
 			<div class="clear"></div>
 
@@ -60,7 +60,6 @@
 					<div class="comment_content">
 						<h5>
 									<div class="fl"><a class="comment_name" href="#">爱玩</a><span>2天前</span></div>
-									<div class="fr reply_this">[回复]</div>
 									<div class="clear"></div>
 								</h5>
 						<div class="comment_p">
@@ -77,7 +76,6 @@
 					<div class="comment_content">
 						<h5>
 									<div class="fl"><a class="comment_name" href="#">爱玩</a><span>2天前</span></div>
-									<div class="fr reply_this">[回复]</div>
 									<div class="clear"></div>
 								</h5>
 						<div class="comment_p">
@@ -97,7 +95,6 @@
 					<div class="comment_content">
 						<h5>
 									<div class="fl"><a class="comment_name" href="#">爱玩</a><span>2天前</span></div>
-									<div class="fr reply_this">[回复]</div>
 									<div class="clear"></div>
 								</h5>
 						<div class="comment_p">
@@ -117,7 +114,6 @@
 					<div class="comment_content">
 						<h5>
 									<div class="fl"><a class="comment_name" href="#">亻夫</a><span>6天前</span></div>
-									<div class="fr reply_this">[回复]</div>
 									<div class="clear"></div>
 								</h5>
 						<div class="comment_p">
@@ -134,7 +130,6 @@
 					<div class="comment_content">
 						<h5>
 									<div class="fl"><a class="comment_name" href="#">wenrou</a><span>7天前</span></div>
-									<div class="fr reply_this">[回复]</div>
 									<div class="clear"></div>
 								</h5>
 						<div class="comment_p">
@@ -146,8 +141,39 @@
 				</div>
 			</li>
 		</ul>
-		<div class="pd5">
-		</div>
-	</div>
 
+	</div>
+	<div id="us_panel2" ng-show="zai">
+		<table width="100%" height="100%" cellspacing="0" border="0">
+			<tr>
+				<td class="us_panel_like"><i></i><span>收藏</span></td>
+				<td class="us_panel_menu">
+					<div class="arrow_top"></div><i></i>
+					<div class="us_panel_menu_left"></div>
+					<div class="us_panel_menu_right"></div>
+				</td>
+				<td class="us_panel_post"><i></i><span ng-click="detailscomment()">评论</span></td>
+			</tr>
+		</table>
+	</div>
+	<div class="details_comment" ng-show="buzai">
+		<div id="us_panel3">
+			<table width="100%" height="100%" cellspacing="0" border="0">
+				<tr>
+					<td class="us_panel_like2"><i></i><span>发表</span></td>
+					<td class="us_panel_menu2">
+						<div class="arrow_top2"></div><i></i>
+						<div class="us_panel_menu_left2"></div>
+						<div class="us_panel_menu_right2"></div>
+					</td>
+					<td class="us_panel_post2" ng-click="us_panel_post2()"><i></i><span>返回</span></td>
+				</tr>
+			</table>
+		</div>
+		<ul class="details_comment_mian">
+			<h3>Dear, please post your comments</h3>
+			
+			<li><span>Message :</span><textarea placeholder="Your Message to Us"></textarea></li>
+		</ul>
+	</div>
 </div>
