@@ -1,3 +1,8 @@
+.box{
+	width:100vw;
+	height:100vh;
+	overflow: hidden;
+}
 .wrapper_home{
 	position:absolute;
 	left:0px;
@@ -531,7 +536,8 @@ i.cate_sort {
 .home_content{
 	width:100%;
 	height:calc(100vh - 100px);
-	background:#A6E1EC;
+	background:url(../images/111.jpg) no-repeat;
+	background-size:100%;100%;
 	overflow:hidden;
 	position:relative;
 }
@@ -543,7 +549,7 @@ i.cate_sort {
 }
 .home_content_left_xia{
 	width:30%;
-	height:550px;
+	height:calc(100vh - 100px);
 	position:absolute;
 	transition:1s all;
 	z-index:111;
@@ -629,6 +635,32 @@ i.cate_sort {
 }
 
 .home_content_right div >p:last-child{
+	float:right;
+	margin-right:15%;
+}
+.home_content_right1{
+	width:calc(70% - 1px);
+	float:left;
+	height:calc(100vh - 100px)
+}
+.home_content_right1 div{
+	width:100%;
+	height:auto;
+	font-size:14px;
+	border-bottom:1px solid black;
+    float:left;
+    margin-top:10px;
+}
+.home_content_right1 div >p{
+	margin-top:3px;
+	margin-left:5%;
+}
+.home_content_right1 div >p:nth-child(2){
+	font-size:18px;
+	font-weight:bold;
+}
+
+.home_content_right1 div >p:last-child{
 	float:right;
 	margin-right:15%;
 }
