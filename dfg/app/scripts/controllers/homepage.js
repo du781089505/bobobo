@@ -16,10 +16,13 @@
 	$scope.e ="1";
 	$scope.arr =[]
 	$scope.tishi = false;
-	$scope.tishi1 = false;
+	$scope.tishi1 = true;
 	$scope.tishi2 = false;
 	$scope.zhuce1 = false;
 	$scope.zhuce2 = false;
+	$scope.queding = function(){
+		$scope.zhuce2 = false;
+	}
 	$scope.t =function(){
 		if($scope.e =="1"){
 			$scope.x = false;
@@ -55,7 +58,9 @@
 		  if(data.data.flag == 1){
 		  	$scope.tishi = true;
 		  	
+		  
 		  }else if(data.data.flag == 2){
+		  	alert(2)
 		  	$scope.tishi1 = true;
 		  }else if(data.data.flag == 3){
 		  	$scope.tishi2 = true;
@@ -79,6 +84,12 @@
 	  	$scope.zhuce1 = true;
 		  }else if(data.data.flag == 2){
 		  	$scope.zhuce2 = true;
+		  	$scope.uname = "";
+		  	$scope.pas ='';
+		  	$scope.name = "";
+		  	$scope.age = "";
+		  	$scope.tel='';
+		  	$scope.qq = ''
 		  }else if(data.data.flag == 3){
 		      console.log("失败")
 		  }

@@ -1600,11 +1600,12 @@ i.sort_com {
 	border: 1px solid #333;
 	position:fixed;
 	display: none;
+	z-index: 999999999999999999999;
 	background:white;
 	font-weight:bold;
 	top:calc(50% - 100px);
 	left:calc(50% - 150px);
-	z-index: 999999999;
+	
 }
 .denglu1>p{
 	width:100%;
