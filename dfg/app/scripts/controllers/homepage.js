@@ -16,13 +16,15 @@
 	$scope.e ="1";
 	$scope.arr =[]
 	$scope.tishi = false;
-	$scope.tishi1 = true;
+	$scope.tishi1 = false;
 	$scope.tishi2 = false;
 	$scope.zhuce1 = false;
 	$scope.zhuce2 = false;
 	$scope.queding = function(){
 		$scope.zhuce2 = false;
 	}
+	$scope.att = []
+	
 	$scope.t =function(){
 		if($scope.e =="1"){
 			$scope.x = false;
@@ -32,7 +34,7 @@
 					url: "http://" + ip + "/homepage/cha",
 					method: "get"
 				}).then(function(data) {
-						console.log(data.data)
+//						console.log(data.data)
 					$scope.arr1=data.data	
 
 				})
@@ -43,14 +45,6 @@
 		}
 		
 	}
-	$http({
-			url:"http://"+ip+"/homepage/list",
-			method:"get"
-		}).then(function(data){
-//			console.log(data.data)
-			$scope.arr = data.data
-			
-		})
 //		登陆
 		$scope.denglu = function(){
 			console.log("1")
@@ -68,7 +62,7 @@
 		  	
 		  
 		  }else if(data.data.flag == 2){
-		  	alert(2)
+		  	
 		  	$scope.tishi1 = true;
 		  }else if(data.data.flag == 3){
 		  	$scope.tishi2 = true;
@@ -105,4 +99,22 @@
 			
 		})
 		}
+		//搜索
+		
+		
+		$scope.hd = function(){
+			console.log($scope.search)
+		$http({
+			url:"http://"+ip+"/homepage/search",
+			method:"get",
+			data:"conppp="+$scope.search,
+			
+		}).then(function(data){
+		
+			console.log(data.data)
+			$scope.att = data.data
+			
+		})
+	}
+	
 })
