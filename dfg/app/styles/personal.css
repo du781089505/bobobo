@@ -1,50 +1,42 @@
 
 #personal{
 	width:100%;
-/*	background: url(../images/personal_beijing.jpg) no-repeat;*/
 	height:1500px;
 	background:#ebe7dd;
 }
-.personal_mian{
+.personal_main{
 	width: 800px;
+	height:600px;
+	background:#fff;
 	margin:0 auto;
-	padding-top:90px;
+	margin-top:65px;
+	padding-top:50px;
 }
-.personal_mian .personal_tou{
-	float:left;
-	width:118px;
-	height:156px;
-}
-.personal_mian .personal_tou button{
-	margin-left: 21px;
-    margin-top: 10px;
-    padding-left: 21px;
-    padding-right: 19px;
-    border-radius: 20px;
-    background: #32b16c;
-    border:#32b16c;
-    color: #7147bf;
-}
-.personal_mian .personal_tou span{
+.personal_main .personal_tou{
 	display: block;
-	width:140px;
-	height:136px;
-	background: url(../images/touxiang.gif);
-	background-size: 140px;
+	width:118px;
+	height:115px;
+	background: url(../images/touxiang.gif) no-repeat;
+	margin-left:45px;
 }
-.personal_ziliao{
-	float: left;
-    margin-left: 250px;
-    font-size: 24px;
-    margin-top: -100px;
-    line-height: 65px;
-    color: #D49B6D;
+.personal_main input{
+	width:118px;
+	display: block;
+	margin-left:45px;
+	margin-top:20px;
+	background:#FAF2CC;
+	border-radius: 8px;
 }
-.personal_shezhi{
-	margin-left:35px;
+.personal_main ul{
+	width:250px;
+	margin-left:45px;
+	margin-top:35px;
+}
+.personal_main ul li{
+	border-bottom:1px solid #ccc;
 	font-size:16px;
-	margin-top:15px;
 }
+.personal_main ul li
 
 
 
