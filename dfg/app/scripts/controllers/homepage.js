@@ -23,6 +23,8 @@
 	$scope.queding = function(){
 		$scope.zhuce2 = false;
 	}
+	$scope.att = []
+	
 	$scope.t =function(){
 		if($scope.e =="1"){
 			$scope.x = false;
@@ -32,7 +34,7 @@
 					url: "http://" + ip + "/homepage/cha",
 					method: "get"
 				}).then(function(data) {
-						console.log(data.data)
+//						console.log(data.data)
 					$scope.arr1=data.data	
 
 				})
@@ -43,14 +45,6 @@
 		}
 		
 	}
-	$http({
-			url:"http://"+ip+"/homepage/list",
-			method:"get"
-		}).then(function(data){
-//			console.log(data.data)
-			$scope.arr = data.data
-			
-		})
 //		登陆
 		$scope.denglu = function(){
 			console.log("1")
@@ -66,7 +60,9 @@
 		  if(data.data.flag == 1){
 		  	$scope.tishi = true;
 		  	
+		  
 		  }else if(data.data.flag == 2){
+		  	
 		  	$scope.tishi1 = true;
 		  }else if(data.data.flag == 3){
 		  	$scope.tishi2 = true;
@@ -90,6 +86,12 @@
 	  	$scope.zhuce1 = true;
 		  }else if(data.data.flag == 2){
 		  	$scope.zhuce2 = true;
+		  	$scope.uname = "";
+		  	$scope.pas ='';
+		  	$scope.name = "";
+		  	$scope.age = "";
+		  	$scope.tel='';
+		  	$scope.qq = ''
 		  }else if(data.data.flag == 3){
 		      console.log("失败")
 		  }
@@ -97,4 +99,22 @@
 			
 		})
 		}
+		//搜索
+		
+		
+		$scope.hd = function(){
+			console.log($scope.search)
+		$http({
+			url:"http://"+ip+"/homepage/search",
+			method:"get",
+			data:"conppp="+$scope.search,
+			
+		}).then(function(data){
+		
+			console.log(data.data)
+			$scope.att = data.data
+			
+		})
+	}
+	
 })
