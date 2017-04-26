@@ -284,7 +284,41 @@ function chaa(cp,callback){
 	})
 }
 
+///
 
+
+router.get('/jie',function(req,res){
+	var c=Number(req.query.c);
+	var d=4
+	console.log(c,d)
+	console.log("into jie...");
+	jiel(c,d,function(err,results){
+		if(err){
+			res.send(err);
+		}else if(results){
+			console.log('>>>'+results);
+			res.send(results)
+		}
+	})
+})
+
+
+function jiel(c,d,callback){
+	console.log("$2345678")
+	pool.getConnection(function(err,conn){
+		var jie_sql='select * from content limit ?,?';
+		conn.query(jie_sql,[c,d],function(err,results){
+			console.log(c,d)
+			console.log("results:"+results)
+			if(err){
+				console.log("jiel Error:"+err.message);
+				return;
+			}
+			conn.release();  //释放连接
+			callback(err,results)
+		})
+	})
+}
 
 /* GET home page. */
 module.exports = router;

@@ -20,4 +20,5 @@
   	 	$scope.zai = true;
   	 	$scope.buzai = false;
   	 }
+  	 
   })
