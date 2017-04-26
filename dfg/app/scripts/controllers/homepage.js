@@ -20,8 +20,14 @@
 	$scope.tishi2 = false;
 	$scope.zhuce1 = false;
 	$scope.zhuce2 = false;
+	$scope.personal = function(){
+		$state.go('personal')
+	}
 	$scope.queding = function(){
 		$scope.zhuce2 = false;
+	}
+	$scope.fabu = function(){
+		$state.go('details')
 	}
 	$scope.t =function(){
 		if($scope.e =="1"){
@@ -43,6 +49,7 @@
 		}
 		
 	}
+	
 	$http({
 			url:"http://"+ip+"/homepage/list",
 			method:"get"
