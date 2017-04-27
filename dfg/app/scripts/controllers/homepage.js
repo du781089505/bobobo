@@ -24,7 +24,12 @@
 		$scope.zhuce2 = false;
 	}
 	$scope.att = []
-	
+	$scope.geren = function(){
+		$start.go("personal")
+	}
+	$scope.xiaoxi = function(){
+			$start.go("messages")
+	}
 	$scope.t =function(){
 		if($scope.e =="1"){
 			$scope.x = false;
