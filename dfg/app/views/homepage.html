@@ -1,8 +1,4 @@
-
-	
 <div ng-controller="homeCtrl" class="box">
-	
-
 <div class="wrapper_home" >
 	<div id="header">
 		<div class="wrap">
@@ -95,10 +91,10 @@
 	<div class="home_content_right" ng-show="x">
 		<div class="aaaa">
 		</div>
-		<div>
+		<div class="bbbb">
 			<div>
 			<p><button class="shang">上一页</button></p>
-			<a class="aa"></a>/<a class="bb"></a>
+			<p><a class="aa"></a>/<a class="bb"></a></p>
 			<p><button class="xia">下一页</button></p>
 			</div>
 		</div>
@@ -106,9 +102,9 @@
 	<div ng-show="a" class="home_content_right1">
 		<div ng-repeat="a1 in arr1">
 			<p><img alt="" />发布人：{{a1.id}}</p>
-			<p>类型 : {{a1.fenlei}}</p>
+			<p>类型 :{{a1.fenlei}}</p>
             <p>标题{{a1.title}}</p>
-            <p>内容{{a1.contents}}</p>
+            <p>内容:{{a1.content}}</p>
             <p>发布时间:{{a1.time | date:"yyyy-M-d hh:mm:ss"}}</p>
 		</div>
 	</div>
@@ -192,7 +188,7 @@
 			</ul>
 		</div>
 	</div>
-			<div id="reg_index">
+	<div id="reg_index">
 		<div class="reg_bar">
 			<div class="wrap">
 				<span class="fl"><i></i>注册帐号</span>
@@ -218,7 +214,6 @@
 			</div>
 		</div>
 	</div>
-	
 </div> 
 <div id="menu">
 		<div class="search_wrap">
@@ -258,7 +253,7 @@
 	</div>	
 		<div class="denglu" id="denglu" ng-show="tishi">
 			<p>登陆成功</p>
-			<button class="queding" ng-model="xi"" >确定</button>
+			<button class="queding" ng-model="xi" >确定</button>
 		</div>
 		<div class="denglu1" ng-show="tishi1">
 			<p>账号不存在</p>
@@ -276,7 +271,7 @@
 			<p>注册成功</p>
 			<button class="queding4" ng-click="queding()">确定</button>
 		</div>
-		</div>
+</div>
 <script>
 	$(".reg_bar_close").click(function(){
 		$("#reg_index").css({"top":"0px"})
@@ -285,14 +280,14 @@
 		$("#reg_index").css({"top":"-100vh"})
 		
 	})
-    var n=true;
+    var n=false;
     $(".menu_open").click(function(){
-    if(n){
+    if(n==false){
     	$(".wrapper_home").css({"left":"250px"})
-    	n=false;
+    	n=true;
     }else{
     	$(".wrapper_home").css({"left":"0px"})
-    	n=true;
+    	n=false;
     }	
 	})
     
@@ -342,42 +337,42 @@
    
     $('.ppp').click(function(){
     	
-    	 var nima = $(this).find('p:first-child').html()
+    	nima = $(this).find('p:first-child').html()
     	$.ajax({
 			type: "get",
 			url: "http://"+ip+"/homepage/chaa",
-			data:"conten="+nima,
-			
+			data:"conten="+nima,	
 			success: function(data) {
 				console.log(data.length)
-				var html = ""
-$('.home_content_right').html("")			
-				for(var i=0;i<data.length;i++){
-					html +="<div><div><p>类型 :"+data[0].fenlei+"</p><p>标题:"+data[0].title+"</p><p>内容:"+data[0].content+"</p><p>发布时间:"+data[0].time+"</p></div></div>"
-					
-				}
-				$('.home_content_right').append(html)
+					var html = ""
+						$(".aaaa").html("");
+						for(var i = 0; i < data.length; i++) {
+						html +="<div><p>发布人</p><p>类型 :"+data[i].fenlei+"</p><p>标题:"+data[i].title+"</p><p>内容:"+data[i].content+"</p><p>发布时间:"+data[i].time+"</p></div>"
+						}
+						$(".aaaa").append(html)
+						$(".bbbb").html("")
+						$(".aaaa").css("height","calc(100% - 50px)");
+						$(".aaaa").css("overflow","auto")
 				
-			
 			}
 		});
     })
-    
-    
 ///////////////////
 
                $.ajax({
 				type: "get",
 				url:"http://"+ip+"/homepage/list",
 				success: function(e) {
+					
 					console.log(111)
-					console.log(e)
+					console.log(e.flag)
+					
 					c = 1;
-					b = Math.ceil(e.length / 4)
-					n=Math.ceil((c-1)*4)
+					b = Math.ceil(e.length / 3)
+					n=Math.ceil((c-1)*3)
 					$(".aa").html(c)
 					$(".bb").html(b)
-					document.querySelector(".shang").setAttribute("disabled", "disabled")
+					
 					aa();
 				}
 			})
@@ -397,13 +392,14 @@ $('.home_content_right').html("")
 								html +="<div><p>发布人</p><p>类型 :"+data[i].fenlei+"</p><p>标题:"+data[i].title+"</p><p>内容:"+data[i].content+"</p><p>发布时间:"+data[i].time+"</p></div>"
 						}
 						$(".aaaa").append(html)
-
 					}
 				})
 			}
+			
+			
 			$(".shang").click(function() {
 				c--;
-				n=Math.ceil((c-1)*4)
+				n=Math.ceil((c-1)*3)
 				if(c <= 1) {
 					c = 1
 				document.querySelector(".shang").setAttribute("disabled", "disabled")	
@@ -416,7 +412,7 @@ $('.home_content_right').html("")
 			})
 			$(".xia").click(function() {
 				c++;
-				n=Math.ceil((c-1)*4)
+				n=Math.ceil((c-1)*3)
 				if(c >= b) {
 					c = b
 				    document.querySelector(".xia").setAttribute("disabled", "disabled")
@@ -426,8 +422,6 @@ $('.home_content_right').html("")
 				$(".aa").html(c)
 				aa()
 			})
+				
 			
-
-			
-
 </script>		
