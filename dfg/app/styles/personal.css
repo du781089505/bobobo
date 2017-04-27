@@ -3,6 +3,7 @@
 	width:100%;
 	height:1500px;
 	background:#ebe7dd;
+	position: relative;
 }
 .personal_main{
 	width: 800px;
@@ -18,8 +19,9 @@
 	height:115px;
 	background: url(../images/touxiang.gif) no-repeat;
 	margin-left:45px;
+	clear: both;
 }
-.personal_main input{
+.personal_main button{
 	width:118px;
 	display: block;
 	margin-left:45px;
@@ -27,16 +29,50 @@
 	background:#FAF2CC;
 	border-radius: 8px;
 }
-.personal_main ul{
+.personal_main .personal_ziliao{
 	width:250px;
 	margin-left:45px;
 	margin-top:35px;
 }
 .personal_main ul li{
-	border-bottom:1px solid #ccc;
 	font-size:16px;
+	margin-top:30px;
 }
-.personal_main ul li
+.personal_main ul li i{
+	font-style:normal;
+	float:left;	
+	width:calc(100%/3)
+}
+.personal_main_xiu{
+	width: 380px;
+    height: 400px;
+    background: black;
+    color: #fff;
+    opacity: 0.5;
+    border-radius: 35px;
+    position: absolute;
+    top:255px;
+    left:255px;
+    display: none;
+}
+.personal_main_xiu input{
+	background: #F5E79E;
+	border-radius:1px;
+	border:0px;
+	width:180px;
+	color:black;
+	margin-right:0px ;
+}.personal_main_xiu button{
+	display: block;
+	margin-top:50px;
+	background:#F5E79E ;
+	color:black;
+	margin-left:85px;
+}
+.personal_main_xiu .personal_xiu_content{
+	padding-top:55px;
+	margin-left:45px;
+}
 
 
 
@@ -315,4 +351,7 @@ i.cate_sort {
 }
 .sort_b_inner span{
 	color:white;
+}
+#a{
+	display: none;
 }
