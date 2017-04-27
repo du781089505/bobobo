@@ -1,49 +1,77 @@
 
 #personal{
 	width:100%;
-/*	background: url(../images/personal_beijing.jpg) no-repeat;*/
 	height:1500px;
 	background:#ebe7dd;
+	position: relative;
 }
-.personal_mian{
+.personal_main{
 	width: 800px;
+	height:600px;
+	background:#fff;
 	margin:0 auto;
-	padding-top:90px;
+	margin-top:65px;
+	padding-top:50px;
 }
-.personal_mian .personal_tou{
-	float:left;
-	width:118px;
-	height:156px;
-}
-.personal_mian .personal_tou button{
-	margin-left: 21px;
-    margin-top: 10px;
-    padding-left: 21px;
-    padding-right: 19px;
-    border-radius: 20px;
-    background: #32b16c;
-    border:#32b16c;
-    color: #7147bf;
-}
-.personal_mian .personal_tou span{
+.personal_main .personal_tou{
 	display: block;
-	width:140px;
-	height:136px;
-	background: url(../images/touxiang.gif);
-	background-size: 140px;
+	width:118px;
+	height:115px;
+	background: url(../images/touxiang.gif) no-repeat;
+	margin-left:45px;
+	clear: both;
 }
-.personal_ziliao{
-	float: left;
-    margin-left: 250px;
-    font-size: 24px;
-    margin-top: -100px;
-    line-height: 65px;
-    color: #D49B6D;
+.personal_main button{
+	width:118px;
+	display: block;
+	margin-left:45px;
+	margin-top:20px;
+	background:#FAF2CC;
+	border-radius: 8px;
 }
-.personal_shezhi{
-	margin-left:35px;
+.personal_main .personal_ziliao{
+	width:250px;
+	margin-left:45px;
+	margin-top:35px;
+}
+.personal_main ul li{
 	font-size:16px;
-	margin-top:15px;
+	margin-top:30px;
+}
+.personal_main ul li i{
+	font-style:normal;
+	float:left;	
+	width:calc(100%/3)
+}
+.personal_main_xiu{
+	width: 380px;
+    height: 400px;
+    background: black;
+    color: #fff;
+    opacity: 0.5;
+    border-radius: 35px;
+    position: absolute;
+    top:255px;
+    left:255px;
+    display: none;
+}
+.personal_main_xiu input{
+	background: #F5E79E;
+	border-radius:1px;
+	border:0px;
+	width:180px;
+	color:black;
+	margin-right:0px ;
+}.personal_main_xiu button{
+	display: block;
+	margin-top:50px;
+	background:#F5E79E ;
+	color:black;
+	margin-left:85px;
+}
+.personal_main_xiu .personal_xiu_content{
+	padding-top:55px;
+	margin-left:45px;
 }
 
 
@@ -323,4 +351,7 @@ i.cate_sort {
 }
 .sort_b_inner span{
 	color:white;
+}
+#a{
+	display: none;
 }

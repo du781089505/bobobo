@@ -218,8 +218,10 @@ i.cate_sort {
 }
 .messages_mian{
 	width: 800px;
-	margin:0 auto;
-	padding-top:90px;
+    margin: 0 auto;
+    margin-top: 60px;
+    background: #fff;
+    padding-top: 30px;
 }
 .messages_mian p{
 	width:100%;
@@ -243,11 +245,15 @@ i.cate_sort {
 }
 .messages_mian ul li{
 	line-height: 25px;
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
 }
 .messages_mian ul li span{
 	display: block;
-	text-align: right;
-	margin-right:60px;
+    text-align: right;
+    margin-right: 60px;
+    margin-top: -10px;
+    margin-bottom: 7px;
 }
 .messages_mian ul li p{
     width: 350px;
