@@ -18,7 +18,8 @@ var pool = mysql.createPool({
     
 router.get('/list',function(req,res){
        console.log("login")
-	getuserName(function(err,rest){
+      
+       	getuserName(function(err,rest){
 		if(err){
 			res.send(err)
 		}else if(rest){
@@ -26,6 +27,8 @@ router.get('/list',function(req,res){
 		}
 		
 	})
+       
+	
 	
 })
 
@@ -59,6 +62,7 @@ router.post('/login',function(req,res){
 		}else if(rest.length>0){
 			console.log("ddddddd")
 			if(password ==rest[0].password){
+				req.session.uname = username;
 				res.send({flag:1})  //登陆成功
 			}else if(password !=rest[0].password){
 				res.send({flag:3})   //密码不正确
@@ -284,6 +288,78 @@ function chaa(cp,callback){
 	})
 }
 
+///  分页
+
+
+router.get('/jie',function(req,res){
+	var c=Number(req.query.c);
+	var d=3
+	console.log(c,d)
+	console.log("into jie...");
+	jiel(c,d,function(err,results){
+		if(err){
+			res.send(err);
+		}else if(results){
+			console.log('>>>'+results);
+			res.send(results)
+		}
+	})
+})
+
+
+function jiel(c,d,callback){
+	console.log("$2345678")
+	pool.getConnection(function(err,conn){
+		var jie_sql='select * from content limit ?,?';
+		conn.query(jie_sql,[c,d],function(err,results){
+			console.log(c,d)
+			console.log("results:"+results)
+			if(err){
+				console.log("jiel Error:"+err.message);
+				return;
+			}
+			conn.release();  //释放连接
+			callback(err,results)
+		})
+	})
+}
+
+///////细致分页
+
+
+router.get('/jiee',function(req,res){
+	var aa=req.query.das
+	var c=Number(req.query.c);
+	var d=3
+	console.log(aa,c,d)
+	console.log("into jie...");
+	jiell(aa,c,d,function(err,results){
+		if(err){
+			res.send(err);
+		}else if(results){
+			console.log('>>>'+results);
+			res.send(results)
+		}
+	})
+})
+
+
+function jiell(aa,c,d,callback){
+	console.log("$2345678")
+	pool.getConnection(function(err,conn){
+		var jie_sql='select * from content where fenlei= ? limit ?,?';
+		conn.query(jie_sql,[aa,c,d],function(err,results){
+			console.log(c,d)
+			console.log("results:"+results)
+			if(err){
+				console.log("jiel Error:"+err.message);
+				return;
+			}
+			conn.release();  //释放连接
+			callback(err,results)
+		})
+	})
+}
 
 
 /* GET home page. */
