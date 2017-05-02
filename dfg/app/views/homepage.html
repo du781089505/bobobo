@@ -101,7 +101,7 @@
 	</div>
 	<div ng-show="a" class="home_content_right1">
 		<div ng-repeat="a1 in arr1" ng-click="to()">
-			<p><img alt="" />发布人：{{a1.id}}</p>
+			<p><img alt="" />发布人：{{a1.name}}</p>
 			<p>类型 :{{a1.fenlei}}</p>
             <p>标题{{a1.title}}</p>
             <p>内容:{{a1.content}}</p>
@@ -110,7 +110,7 @@
 	</div>
 	<div ng-show="b" class="home_content_right1">
 		<div ng-repeat="r in att" ng-click="to()">
-			<p><img alt="" />发布人：{{a1.id}}</p>
+			<p><img alt="" />发布人：{{r.name}}</p>
 			<p>类型 :{{r.fenlei}}</p>
             <p>标题{{r.title}}</p>
             <p>内容:{{r.content}}</p>

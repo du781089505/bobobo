@@ -13,19 +13,23 @@
   	$scope.fabiao = function(){
   		 var now1=new Date();
             //让时间在页面显示
-            $scope.time=now1.getHours()+':'+now1.getMinutes()+':'+now1.getSeconds();
-            
+            $scope.time=now1.getFullYear()+'-'+now1.getMonth()+'-'+now1.getDate();
+            console.log($scope.time)
 		 $http({
 					url: "http://" + ip + "/information/tianjia",
-					method: "get"
-					data:{
-						title:$scope.title,
-						content:$scope.content,
-						fenlei:$scope.fenlei,
-						time:$scope.time
-					}
+					method: "post",
+					data:"title="+$scope.title+"&content="+$scope.content+"&time="+$scope.time+"&fenlei="+$scope.fenlei+"&id="+localStorage.id+"&name="+localStorage.name,
+					headers:{
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
 				}).then(function(data) {
-						console.log(data.data)
+					console.log(data.data)
+					if(data.data.flag == 1){
+						
+					}else{
+						console.log("失败")
+					}
+						
 //					$scope.arr1=data.data	
 
 				})

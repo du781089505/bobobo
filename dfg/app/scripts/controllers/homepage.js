@@ -46,8 +46,11 @@
 					url: "http://" + ip + "/homepage/cha",
 					method: "get"
 				}).then(function(data) {
-//						console.log(data.data)
-					$scope.arr1=data.data	
+						console.log(data.data)
+					$scope.arr1=data.data
+					
+					
+					
 
 				})
 		}else if($scope.e =="2"){
@@ -71,7 +74,8 @@
 		}).then(function(data){
 		  if(data.data.flag == 1){
 		  	$scope.tishi = true;
-		  	
+		  	console.log(data)
+		  	localStorage.username = $scope.username
 		  
 		  }else if(data.data.flag == 2){
 		 
@@ -134,5 +138,17 @@
 			
 		})
 	}
-	
+	$http({
+			url:"http://"+ip+"/personal/xun",
+			method:"get",
+			params:{username:localStorage.username},
+			headers:{
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+			
+		}).then(function(data){
+		    console.log(data.data[0].id)
+		    localStorage.id = data.data[0].id
+			localStorage.name = data.data[0].name
+		})
 })
