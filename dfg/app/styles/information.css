@@ -1,0 +1,52 @@
+.information_mian{
+	width:100%;
+	background:url(../images/sgbk_lemma_bg.jpg);
+	height:100vh;
+}
+.information_content{
+	width: 800px;
+	overflow: hidden;
+	margin:0 auto;
+	padding-top:70px;
+}
+.information_content input{
+	color:#666;
+	border:none;
+	border-bottom:1px solid #000000;
+}
+.information_content .tishi{
+	font-size:28px;
+	margin-left:20px;
+}
+.information_content_title{
+	font-size:30px;
+	width:350px;
+	text-align: center;
+	margin-left:42px;
+	background: url(../images/sgbk_lemma_bg.jpg);
+}
+.information_content select{
+	margin-top:70px;
+	font-size:20px;
+}
+.information_content textarea{
+	margin-left:8px;
+	margin-top:70px;
+	width:600px;
+	height:200px;
+	font-size:20px;
+	text-indent: 25px;
+	background: url(../images/sgbk_lemma_bg.jpg);
+}
+.haha{
+	float: left;
+	margin-top:58px;
+}
+.information_content button{
+	float:right;
+	margin-top:40px;
+	margin-right:40px;
+	width:70px;
+	height:30px;
+	
+}

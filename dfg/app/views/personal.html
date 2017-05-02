@@ -1,79 +1,134 @@
 <div ng-controll="personal">
-	
 
-<div id="personal" class="wrapper_home" >
-	
-<div id="header">
-		<div class="wrap">
-			<i class="menu_open"></i>
-			<div class="logo"><a><img src="images/logo.png" /></a></div>
-			<i class="search_open"></i>
+	<div id="personal" class="wrapper_home">
+
+		<div id="header">
+			<div class="wrap">
+				<i class="menu_open"></i>
+				<div class="logo">
+					<a><img src="images/logo.png" /></a>
+				</div>
+				<i class="search_open"></i>
+			</div>
+			<div class="logo_msk"></div>
 		</div>
-		<div class="logo_msk"></div>
-	</div>
-	
+
 		<div class="personal_main">
-			<div class="personal_tou">
-				
-			</div>
-			<input type="file" id="a"/>
-			
-			<ul class="personal_ziliao">
-				<li><i>昵称：</i><p>你猜猜</p></li>
-				<li><i>性别：</i><p>你猜猜</p></li>
-				<li><i>联系方式：</i><p>你猜猜你猜猜</p></li>
-				<li><i>QQ：</i><p>你猜猜</p></li>
-			</ul>
-			<button>修改资料</button>
-			<div class='personal_main_xiu'>
-				<ul class="personal_xiu_content">
-					<li><i>昵称：</i><input type="text" /></li>
-					<li><i>性别：</i><input type="text" /></li>
-					<li><i>电话：</i><input type="text" /></li>
-					<li><i>QQ：</i><input type="text" /></li>
-					<li><button class="aaa">确认修改</button></li>
+			<div class="personal_main_left">
+				<div class="personal_tou">
+
+				</div>
+				<input type="file" id="a" />
+
+				<ul class="personal_ziliao">
+					<li><i>昵称：</i>
+						<p>你猜猜</p>
+					</li>
+					<li><i>性别：</i>
+						<p>你猜猜</p>
+					</li>
+					<li><i>联系方式：</i>
+						<p>你猜猜你猜猜</p>
+					</li>
+					<li><i>QQ：</i>
+						<p>你猜猜</p>
+					</li>
+					<li><i>邮箱：</i>
+						<p>你猜猜</p>
+					</li>
 				</ul>
+				<button class="aaa">修改资料</button>
+				<div class='personal_main_xiu'>
+					<ul class="personal_xiu_content">
+						<li><i>昵称：</i><input type="text" /></li>
+						<li><i>性别：</i><input type="text" /></li>
+						<li><i>电话：</i><input type="text" /></li>
+						<li><i>QQ：</i><input type="text" /></li>
+						<li><i>邮箱：</i><input type="text" /></li>
+						<li><button class="aaa">确认修改</button></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="personal_main_right">
+				<div class="main_right-top"  class="tab">
+					<button class="cur">我已发表</button>
+					<button>我已收藏</button>
+				</div>
+				<div class="main_right-bottom">
+					<ul class="on">
+						<li>我已收藏</li>
+						<li>我已收藏</li>
+						<li>我已收藏</li>
+						<li>我已收藏</li>
+					</ul>
+					<ul>
+						<li>我已发表</li>
+						<li>我已发表</li>
+						<li>我已发表</li>
+						<li>我已发表</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-</div>
+	</div>
 
-<div id="menu">
+	<div id="menu">
 		<div class="search_wrap">
 			<form action="" method="get">
-			<input type="text" name="search" class="search_input" placeholder="关键字查找" ng-model="search" ng-blur="hd()"/>
+				<input type="text" name="search" class="search_input" placeholder="关键字查找" ng-model="search" ng-blur="hd()" />
 				<i class="reset_input"><i></i></i>
 			</form>
 		</div>
 		<ul>
-			<li class="nav_index menu_cur"><a><i></i><span>首页</span><b></b><div class="clear"></div></a></li>
-			<li class="nav_site" ng-click="personal()"><a><i></i><span>个人</span><b></b><div class="clear"></div></a></li>
-			<li class="nav_about"><a><i></i><span>消息</span><b></b><div class="clear"></div></a></li>
+			<li class="nav_index menu_cur">
+				<a><i></i><span>首页</span><b></b>
+					<div class="clear"></div>
+				</a>
+			</li>
+			<li class="nav_site" ng-click="personal()">
+				<a><i></i><span>个人</span><b></b>
+					<div class="clear"></div>
+				</a>
+			</li>
+			<li class="nav_about">
+				<a><i></i><span>消息</span><b></b>
+					<div class="clear"></div>
+				</a>
+			</li>
 		</ul>
-</div>
+	</div>
 
 </div>
+
 <script>
-	
 	function $(el) {
-				var obj = document.querySelectorAll(el);
-				return obj.length > 1 ? obj : obj[0];
-		}
-		$(".personal_tou").addEventListener("click",function(){
-			$("#a").click();
-			$("#a").addEventListener("change", function() {
-				//第一步创建文件对象
-					var img = this.files[0],
-					//创建了一个文件对象
-					fileTran = new FileReader();
-						//将文件转换为文本显示
-					fileTran.readAsDataURL(img);
-					//文件加载成功后执行事件
-					fileTran.onload = function() {
-						$(".personal_tou").style.cssText = "width:118;height:115"
-						$(".personal_tou").innerHTML = "<img id='img' src='" + this.result + "' style='width:100%;height:100%'/>";
-					}
-				})
-
+		var obj = document.querySelectorAll(el);
+		return obj.length > 1 ? obj : obj[0];
+	}
+	$(".personal_tou").addEventListener("click", function() {
+		$("#a").click();
+		$("#a").addEventListener("change", function() {
+			//第一步创建文件对象
+			var img = this.files[0],
+				//创建了一个文件对象
+				fileTran = new FileReader();
+			//将文件转换为文本显示
+			fileTran.readAsDataURL(img);
+			//文件加载成功后执行事件
+			fileTran.onload = function() {
+				$(".personal_tou").style.cssText = "width:118;height:115"
+				$(".personal_tou").innerHTML = "<img id='img' src='" + this.result + "' style='width:100%;height:100%'/>";
+			}
 		})
-		
+
+	})
+	$(document).ready(function(){
+        $(".tab li").click(function(){
+        $(".tab li").eq($(this).index()).addClass("cur").siblings().removeClass('cur');
+$("div").hide().eq($(this).index()).show();
+       //另一种方法: $("div").eq($(".tab li").index(this)).addClass("on").siblings().removeClass('on'); 
+
+        });
+    });
 </script>
