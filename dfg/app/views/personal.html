@@ -37,7 +37,7 @@
 						<p>你猜猜</p>
 					</li>
 				</ul>
-				<button class="aaa">修改资料</button>
+				<button class="bbb">修改资料</button>
 				<div class='personal_main_xiu'>
 					<ul class="personal_xiu_content">
 						<li><i>昵称：</i><input type="text" /></li>
@@ -51,18 +51,18 @@
 			</div>
 
 			<div class="personal_main_right">
-				<div class="main_right-top"  class="tab">
-					<button class="cur">我已发表</button>
-					<button>我已收藏</button>
+				<div class="main_right-top">
+					<button class='a'>我已发表</button>
+					<button class="b">我已收藏</button>
 				</div>
 				<div class="main_right-bottom">
-					<ul class="on">
+					<ul class="d" style="display: none;">
 						<li>我已收藏</li>
 						<li>我已收藏</li>
 						<li>我已收藏</li>
 						<li>我已收藏</li>
 					</ul>
-					<ul>
+					<ul class="c">
 						<li>我已发表</li>
 						<li>我已发表</li>
 						<li>我已发表</li>
@@ -102,33 +102,50 @@
 </div>
 
 <script>
-	function $(el) {
-		var obj = document.querySelectorAll(el);
-		return obj.length > 1 ? obj : obj[0];
-	}
-	$(".personal_tou").addEventListener("click", function() {
-		$("#a").click();
-		$("#a").addEventListener("change", function() {
-			//第一步创建文件对象
-			var img = this.files[0],
-				//创建了一个文件对象
-				fileTran = new FileReader();
-			//将文件转换为文本显示
-			fileTran.readAsDataURL(img);
-			//文件加载成功后执行事件
-			fileTran.onload = function() {
-				$(".personal_tou").style.cssText = "width:118;height:115"
-				$(".personal_tou").innerHTML = "<img id='img' src='" + this.result + "' style='width:100%;height:100%'/>";
+	function ww(el) {
+				var obj = document.querySelectorAll(el);
+				return obj.length > 1 ? obj : obj[0];
 			}
+		ww(".personal_tou").addEventListener("click",function(){
+			ww("#a").click();
+			ww("#a").addEventListener("change", function() {
+				//第一步创建文件对象
+					var img = this.files[0],
+					//创建了一个文件对象
+					fileTran = new FileReader();
+						//将文件转换为文本显示
+					fileTran.readAsDataURL(img);
+					//文件加载成功后执行事件
+					fileTran.onload = function() {
+						ww(".personal_tou").style.cssText = "width:118;height:115"
+						ww(".personal_tou").innerHTML = "<img id='img' src='" + this.result + "' style='width:100%;height:100%'/>";
+						var imgWidth = ww("#img").offsetWidth,
+							screenWidth= window.innerWidth,
+							imgHeight = ww("#img").offsetHeight,
+							screenHeight = window.innerHeight;
+						if(imgWidth >= screenWidth){
+							ww(".personal_tou > img").style.width = 0.8 * screenWidth +"px";
+						}
+						if(imgHeight >= screenHeight){
+							ww(".personal_tou > img").style.height = 0.8 * screenHeight +"px";
+						}
+
+					}
+				})
+
 		})
-
-	})
-	$(document).ready(function(){
-        $(".tab li").click(function(){
-        $(".tab li").eq($(this).index()).addClass("cur").siblings().removeClass('cur');
-$("div").hide().eq($(this).index()).show();
-       //另一种方法: $("div").eq($(".tab li").index(this)).addClass("on").siblings().removeClass('on'); 
-
-        });
-    });
+		$('.a').click(function(){
+			$('.c').css("display","block");
+			$('.d').css("display","none")
+		})
+		$('.b').click(function(){
+			$('.d').css("display","block");
+			$('.c').css("display","none")
+		})
+		$('.bbb').click(function(){
+			$('.personal_main_xiu').css("display","block")
+		})
+		$('.aaa').click(function(){
+			$('.personal_main_xiu').css("display","none")
+		})
 </script>
