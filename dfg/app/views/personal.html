@@ -1,4 +1,7 @@
-<div id="personal">
+<div ng-controll="personal">
+	
+
+<div id="personal" class="wrapper_home" >
 	
 <div id="header">
 		<div class="wrap">
@@ -8,46 +11,69 @@
 		</div>
 		<div class="logo_msk"></div>
 	</div>
-	<div id="sort">
-			<table width="100%" border="0" cellspacing="0">
-				<tr>
-					<td class="sort_left">
-						<div class="sort_cate">
-							<div class="sort_b"><a href="#" onclick="return false;"><div class="sort_b_inner"><i class="cate_default"></i><span class="ssss">全部</span><div class="clear"></div></div></a></div>
-						</div>
-					</td>
-					<td>
-						<div class="sort_sort">
-							<div class="sort_b"><a href="#" onclick="return false;"><div class="sort_b_inner"><i class="cate_sort"></i><span>最新发布</span><div class="clear"></div></div></a></div>
-						</div>
-					</td>
-					<td class="sort_right">
-						<div class="sort_tag">
-							<div class="sort_b"><a href="#" onclick="return false;"><div class="sort_b_inner"><i class="cate_tag"></i><span>发布</span><div class="clear"></div></div></a></div>
-						</div>
-					</td>
-				</tr>
-			</table>
-		</div>	
-		
-		
-
-	<div class="personal_mian">
-		<div class="personal_tou">
-			<span>
+	
+		<div class="personal_main">
+			<div class="personal_tou">
 				
-			</span>
-			<input type="file" name="" id="" value="" />
-			<p class="personal_shezhi">
-				个人设置
-			</p>
+			</div>
+			<input type="file" id="a"/>
+			
+			<ul class="personal_ziliao">
+				<li><i>昵称：</i><p>你猜猜</p></li>
+				<li><i>性别：</i><p>你猜猜</p></li>
+				<li><i>联系方式：</i><p>你猜猜你猜猜</p></li>
+				<li><i>QQ：</i><p>你猜猜</p></li>
+			</ul>
+			<button>修改资料</button>
+			<div class='personal_main_xiu'>
+				<ul class="personal_xiu_content">
+					<li><i>昵称：</i><input type="text" /></li>
+					<li><i>性别：</i><input type="text" /></li>
+					<li><i>电话：</i><input type="text" /></li>
+					<li><i>QQ：</i><input type="text" /></li>
+					<li><button class="aaa">确认修改</button></li>
+				</ul>
+			</div>
 		</div>
-		<span class="personal_ziliao">
-			<p>姓名：<span>哎呦我去</span></p>
-			<p>姓名：<span>哎呦我去</span></p>
-			<p>姓名：<span>哎呦我去</span></p>
-			<p>姓名：<span>哎呦我去</span></p>
-			<p>姓名：<span>哎呦我去哎呦我去哎呦我去哎呦我去去哎呦我去哎呦我去哎呦我去去哎呦我去哎呦我去哎呦我去去哎呦我</span></p>
-		</span>
-	</div>
 </div>
+
+<div id="menu">
+		<div class="search_wrap">
+			<form action="" method="get">
+			<input type="text" name="search" class="search_input" placeholder="关键字查找" ng-model="search" ng-blur="hd()"/>
+				<i class="reset_input"><i></i></i>
+			</form>
+		</div>
+		<ul>
+			<li class="nav_index menu_cur"><a><i></i><span>首页</span><b></b><div class="clear"></div></a></li>
+			<li class="nav_site" ng-click="personal()"><a><i></i><span>个人</span><b></b><div class="clear"></div></a></li>
+			<li class="nav_about"><a><i></i><span>消息</span><b></b><div class="clear"></div></a></li>
+		</ul>
+</div>
+
+</div>
+<script>
+	
+	function $(el) {
+				var obj = document.querySelectorAll(el);
+				return obj.length > 1 ? obj : obj[0];
+		}
+		$(".personal_tou").addEventListener("click",function(){
+			$("#a").click();
+			$("#a").addEventListener("change", function() {
+				//第一步创建文件对象
+					var img = this.files[0],
+					//创建了一个文件对象
+					fileTran = new FileReader();
+						//将文件转换为文本显示
+					fileTran.readAsDataURL(img);
+					//文件加载成功后执行事件
+					fileTran.onload = function() {
+						$(".personal_tou").style.cssText = "width:118;height:115"
+						$(".personal_tou").innerHTML = "<img id='img' src='" + this.result + "' style='width:100%;height:100%'/>";
+					}
+				})
+
+		})
+		
+</script>
