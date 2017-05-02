@@ -30,6 +30,14 @@
   	 $scope.home = function(){
 	$state.go('home')
 }  	 	
-  	 
-  	 
+  	$scope.arr = []
+  	 $scope.id = location.href.split("=")[1]
+  	 $http({
+					url: "http://" + ip + "/details/juti?id="+$scope.id,
+					method: "get"
+				}).then(function(data) {
+						console.log(data.data)
+						$scope.arr = data.data
+
+				})
   })
