@@ -228,6 +228,7 @@ function cha(con,cott,callback){
 router.get('/search',function(req,res){
 	var conten=req.query.conppp;
      console.log(conten)
+     console.log(111111111111)
     search(conten,function(err,result){
     	 if(err){
 			res.send(err);
@@ -360,6 +361,9 @@ function jiell(aa,c,d,callback){
 		})
 	})
 }
+
+
+
 
 
 /* GET home page. */
