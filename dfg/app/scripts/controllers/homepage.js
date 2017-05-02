@@ -68,7 +68,7 @@
 		  	
 		  
 		  }else if(data.data.flag == 2){
-		  	
+		 
 		  	$scope.tishi1 = true;
 		  }else if(data.data.flag == 3){
 		  	$scope.tishi2 = true;
