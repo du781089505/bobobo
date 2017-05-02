@@ -34,7 +34,7 @@
 	$scope.xiaoxi = function(){
 			$state.go("messages")
 	}
-	$scope.xiang = function(){
+	$scope.to = function(){
 			$state.go("details")
 	}
 	$scope.t =function(){
@@ -120,6 +120,9 @@
 			url:"http://"+ip+"/homepage/search",
 			method:"get",
 			data:"conppp="+$scope.search,
+			headers:{
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
 			
 		}).then(function(data){
 		
