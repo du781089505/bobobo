@@ -14,30 +14,37 @@ var pool = mysql.createPool({
 
 
 
-router.get('/list',function(req,res){
-       console.log("login")
-       	getuserName(function(err,rest){
-		if(err){
-			res.send(err)
-		}else if(rest){
-			res.send(rest)
+router.post('/tianjia',function(req,res){
+	console.log(21312312313)
+	var title=req.body.title;
+	var content=req.body.content;//后面的password是页面上的，前面的password是自己在后台重新命名的
+	var time=req.body.time;
+	var fenlei=req.body.fenlei;
+	console.log(title,content,time,fenlei)
+	save(title,content,time,fenlei,function(err,result){ //这儿是往下面传参的
+		     if(err){
+			res.send(err);
+		}else if(result){
+			console.log('ttototo'+result);
+			res.send(result)
 		}
-	})	
+	})
 })
 
-function getuserName(callback){
-	pool.getConnection(function(err,conn){ //获取连接
-		var sql ='select * from user ';
-		conn.query(sql,function(err,result){
-//			console.log(result)
+function save(title,content,time,fenlei,callback){//接受参数  ，自己命名的可以随便写
+	pool.getConnection(function(err,conn){
+		var sql="insert into content(title,content,time,fenlei) values(?,?,?,?)"//这儿是数据库中的列名
+	conn.query(sql,[title,content,time,fenlei],function(err,result){//这儿是接受参数，自己所起的名字
 			if(err){
-				console.log("getAllUser Eroor:"+err.message)
-				return
+				console.log("getAllUsers Error:"+err.message);
+				return;
 			}
-			conn.release()  //释放连接
+			conn.release();  //释放连接
+			console.log("11111")
 			callback(err,result)
-		})
 	})
+	})
+	
 }
 
 
