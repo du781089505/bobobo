@@ -27,10 +27,16 @@
 		$scope.zhuce2 = false;
 	}
 	$scope.fabu = function(){
-		$state.go('details')
+	$start.go("personal")
 	}
 	$scope.att = []
 	
+	$scope.xiaoxi = function(){
+			$state.go("messages")
+	}
+	$scope.xiang = function(){
+			$state.go("details")
+	}
 	$scope.t =function(){
 		if($scope.e =="1"){
 			$scope.x = false;

@@ -21,4 +21,15 @@
   	 	$scope.buzai = false;
   	 }
   	 
+  	 $scope.xiaoxi = function(){
+			$state.go("messages")
+	}
+  	 $scope.personal = function(){
+		$state.go('personal')
+	}
+  	 $scope.home = function(){
+	$state.go('home')
+}  	 	
+  	 
+  	 
   })

@@ -1,4 +1,7 @@
-<div id="messages">
+ <div ng-controller="messages">
+ 	
+
+<div id="messages" class="wrapper_home">
 	<div id="header">
 		<div class="wrap">
 			<i class="menu_open"></i>
@@ -41,3 +44,42 @@
 		<div><button>上一页</button><button>下一页</button></div>
 	</div>
 </div>
+<div id="menu">
+		<div class="search_wrap">
+			<form action="" method="get">
+			<input type="text" name="search" class="search_input" placeholder="关键字查找" ng-model="search" ng-blur="hd()"/>
+				<i class="reset_input"><i></i></i>
+			</form>
+		</div>
+		<ul>
+			<li class="nav_index menu_cur" ng-click="home()"><a><i></i><span>首页</span><b></b><div class="clear"></div></a></li>
+			<li class="nav_site" ng-click="personal()"><a><i></i><span>个人</span><b></b><div class="clear"></div></a></li>
+			<li class="nav_about"><a><i></i><span>消息</span><b></b><div class="clear"></div></a></li>
+		</ul>
+</div>
+<div id="user">
+		<div class="account">
+				<div class="login_b_t">
+					<div class="pd10">
+						<div class="fl">还没有账号<a id="reg_now" href="" >立即注册</a></div><div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="pd10">
+				<form method="post" action="">
+					<div class="login_b_i">
+						<div class="login_input">
+
+							<div class="login_user"><input type="text" name="email" placeholder="邮箱/帐号" ng-model="username"/><i></i></div>
+							<div class="login_password"><input type="password" name="password" placeholder="密码" ng-model="password"/><i></i></div>
+						</div>
+					</div>
+					<a class="login_submit" ng-click="denglu()">登录</a>
+
+					
+				</form>
+			</div>
+	</div>
+
+ </div>
+ <script src="../scripts/gonggong.js"></script>

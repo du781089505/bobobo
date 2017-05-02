@@ -1,4 +1,7 @@
-<div id="personal">
+<div ng-controll="personal">
+	
+
+<div id="personal" class="wrapper_home" >
 	
 <div id="header">
 		<div class="wrap">
@@ -28,18 +31,33 @@
 					<li><i>性别：</i><input type="text" /></li>
 					<li><i>电话：</i><input type="text" /></li>
 					<li><i>QQ：</i><input type="text" /></li>
-					<li><button>确认修改</button></li>
+					<li><button class="aaa">确认修改</button></li>
 				</ul>
 			</div>
 		</div>
-
-	
 </div>
-<script type="text/javascript">
+
+<div id="menu">
+		<div class="search_wrap">
+			<form action="" method="get">
+			<input type="text" name="search" class="search_input" placeholder="关键字查找" ng-model="search" ng-blur="hd()"/>
+				<i class="reset_input"><i></i></i>
+			</form>
+		</div>
+		<ul>
+			<li class="nav_index menu_cur"><a><i></i><span>首页</span><b></b><div class="clear"></div></a></li>
+			<li class="nav_site" ng-click="personal()"><a><i></i><span>个人</span><b></b><div class="clear"></div></a></li>
+			<li class="nav_about"><a><i></i><span>消息</span><b></b><div class="clear"></div></a></li>
+		</ul>
+</div>
+
+</div>
+<script>
+	
 	function $(el) {
 				var obj = document.querySelectorAll(el);
 				return obj.length > 1 ? obj : obj[0];
-			}
+		}
 		$(".personal_tou").addEventListener("click",function(){
 			$("#a").click();
 			$("#a").addEventListener("change", function() {
