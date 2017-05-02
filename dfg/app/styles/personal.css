@@ -37,6 +37,14 @@
 .personal_main .aaa{
 	width:118px;
 	display: block;
+	margin-left:80px;
+	margin-top:20px;
+	background:#FAF2CC;
+	border-radius: 8px;
+}
+.personal_main .bbb{
+	width:118px;
+	display: block;
 	margin-left:45px;
 	margin-top:20px;
 	background:#FAF2CC;
@@ -59,13 +67,13 @@
 .personal_main_xiu{
 	width: 380px;
     height: 400px;
-    background: black;
+    background: url(../images/beij.jpg);
     color: #fff;
-    opacity: 0.5;
+    opacity: 0.8;
     border-radius: 35px;
     position: absolute;
-    top:255px;
-    left:255px;
+    top: 180px;
+    left: 605px;
     display: none;
 }
 .personal_main_xiu input{
@@ -389,5 +397,3 @@ i.cate_sort {
 	margin-left:50px;
 	margin-top:55px;
 }
-.on{display:block;}
-.tab .cur{background:blue;}
