@@ -1,9 +1,55 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-    </head>
-    <body>
-	</body>
-</html>
+<div ng-controller="information">
+	<div id="information" class="wrapper_home">
+	<div id="header">
+		<div class="wrap">
+			<i class="menu_open"></i>
+			<div class="logo">
+				<a><img src="images/logo.png" /></a>
+			</div>
+			<i class="search_open"></i>
+		</div>
+		<div class="logo_msk"></div>
+	</div>
+	
+
+	
+	
+	<div class="information_mian">
+		<div class="information_content">
+			<div><span class="tishi">title：</span><input type="text" class="information_content_title" /></div>
+			<div>
+				<span class="tishi">category：</span><select name="类别">
+					<option>css3</option>
+					<option>JavaScript</option>
+					<option>Angular</option>
+					<option>JQuery</option>
+				</select>
+			</div>
+			<div>
+				<span class="tishi haha">content：</span>
+				<textarea>
+					
+				</textarea>
+			</div>
+			<div>
+				<button>发表</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="menu">
+		<div class="search_wrap">
+			<form action="" method="get">
+			<input type="text" name="search" class="search_input" placeholder="关键字查找" ng-model="search" ng-blur="hd()"/>
+				<i class="reset_input"><i></i></i>
+			</form>
+		</div>
+		<ul>
+			<li class="nav_index menu_cur"><a><i></i><span>首页</span><b></b><div class="clear"></div></a></li>
+			<li class="nav_site" ng-click="personal()"><a><i></i><span>个人</span><b></b><div class="clear"></div></a></li>
+			<li class="nav_about" ng-click="xiaoxi()"><a><i></i><span>消息</span><b></b><div class="clear"></div></a></li>
+		</ul>
+</div>
+</div>
+
+ <script src="../scripts/gonggong.js"></script>
