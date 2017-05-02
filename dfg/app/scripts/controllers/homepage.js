@@ -27,7 +27,7 @@
 		$scope.zhuce2 = false;
 	}
 	$scope.fabu = function(){
-	$start.go("personal")
+	$state.go("information")
 	}
 	$scope.att = []
 	
@@ -112,20 +112,23 @@
 		})
 		}
 		//搜索
-		
-		
+		$scope.b = false
+		$scope.att = []
 		$scope.hd = function(){
 			console.log($scope.search)
 		$http({
 			url:"http://"+ip+"/homepage/search",
 			method:"get",
-			data:"conppp="+$scope.search,
+			params:{conppp:$scope.search},
 			headers:{
 				'Content-Type': 'application/x-www-form-urlencoded'
 			}
 			
 		}).then(function(data){
-		
+		    $scope.b = true
+		     $scope.a = false
+		      $scope.x = false
+		      $scope.search=''
 			console.log(data.data)
 			$scope.att = data.data
 			
