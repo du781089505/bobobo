@@ -3,7 +3,19 @@
 	width:100%;
 	height:1500px;
 	background:#ebe7dd;
+	z-index: 9999999;
 	position: relative;
+}
+.wrapper_home{
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:999999;
+	width:100vw;
+	background:white;
+	height:100vh;
+	transition:1s all;
+	overflow:hidden;
 }
 .personal_main{
 	width: 800px;

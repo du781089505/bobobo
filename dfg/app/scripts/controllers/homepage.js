@@ -32,7 +32,10 @@
 	$scope.att = []
 	
 	$scope.xiaoxi = function(){
-			$start.go("messages")
+			$state.go("messages")
+	}
+	$scope.xiang = function(){
+			$state.go("details")
 	}
 	$scope.t =function(){
 		if($scope.e =="1"){
