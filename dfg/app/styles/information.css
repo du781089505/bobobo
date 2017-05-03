@@ -1,7 +1,12 @@
+.box1{
+	position:absolute;
+	width:100%;
+}
 .information_mian{
 	width:100%;
 	background:url(../images/sgbk_lemma_bg.jpg);
 	height:100vh;
+	
 }
 .information_content{
 	width: 800px;

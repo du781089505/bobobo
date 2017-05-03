@@ -1,4 +1,4 @@
-<div ng-controll="personal">
+<div ng-controll="personal" class="box">
 
 	<div id="personal" class="wrapper_home">
 
@@ -26,12 +26,12 @@
 				<button class="bbb">修改资料</button>
 				<div class='personal_main_xiu'>
 					<ul class="personal_xiu_content">
-						<li><i>昵称：</i><input type="text" /></li>
-						<li><i>性别：</i><input type="text" /></li>
-						<li><i>电话：</i><input type="text" /></li>
-						<li><i>QQ：</i><input type="text" /></li>
-						<li><i>邮箱：</i><input type="text" /></li>
-						<li><button class="aaa">确认修改</button></li>
+						<li><i>昵称：</i><input type="text" class="nicheng"/></li>
+						<li><i>电话：</i><input type="text" class="dianhua"/></li>
+						<li><i>QQ：</i><input type="text" class="qq"/></li>
+						<li><i>年龄：</i><input type="text" class="nianling"/></li>
+						<li><i>密码：</i><input type="text" class="mima"/></li>
+						<li><button class="aaa">确认</button><button class="bbbb">取消</button></li>
 					</ul>
 				</div>
 			</div>
@@ -131,8 +131,43 @@
 		$('.bbb').click(function(){
 			$('.personal_main_xiu').css("display","block")
 		})
-		$('.aaa').click(function(){
+		$('.bbbb').click(function(){
 			$('.personal_main_xiu').css("display","none")
+		})
+		$('.aaa').click(function(){
+			$.ajax({
+			type: "post",
+			url: "http://"+ip+"/personal/xiugaihou",
+			data:"name="+$('.nicheng').val()+"&age="+$('.nianling').val()+"&tel="+$('.dianhua').val()+"&qq="+$('.qq').val()+"&id="+localStorage.id+"&password="+$('.mima').val(),	
+			success: function(data) {
+				if(data.flag ==1){
+					$('.personal_main_xiu').css("display","none")
+					$.ajax({
+			type: "get",
+			url: "http://"+ip+"/personal/xun",
+			data:"username="+localStorage.username,	
+			success: function(data) {
+				console.log(data)
+				$(".personal_ziliao").html("")
+					var html = ""
+						
+						for(var i = 0; i < data.length; i++) {
+						html +="<li><i>昵称：</i><p>"+data[i].name+"</p></li><li><i>QQ：</i><p>"+data[i].qq+"</p></li><li><i>年龄：</i><p>"+data[i].age+"</p></li><li><i>联系方式：</i><p>"+data[i].tel+"</p></li>"
+						}
+						$(".personal_ziliao").append(html)
+	     $('.nicheng').val(data[0].name)		
+				$('.nianling').val(data[0].age)
+				$('.qq').val(data[0].qq)
+				$('.dianhua').val(data[0].tel)
+				$('.mima').val(data[0].password)
+			}
+		});
+				}
+				    console.log(data)
+					
+			}
+		});
+			
 		})
 		$.ajax({
 			type: "get",
@@ -146,8 +181,11 @@
 						html +="<li><i>昵称：</i><p>"+data[i].name+"</p></li><li><i>QQ：</i><p>"+data[i].qq+"</p></li><li><i>年龄：</i><p>"+data[i].age+"</p></li><li><i>联系方式：</i><p>"+data[i].tel+"</p></li>"
 						}
 						$(".personal_ziliao").append(html)
-						
-				
+	     $('.nicheng').val(data[0].name)		
+				$('.nianling').val(data[0].age)
+				$('.qq').val(data[0].qq)
+				$('.dianhua').val(data[0].tel)
+				$('.mima').val(data[0].password)
 			}
 		});
    

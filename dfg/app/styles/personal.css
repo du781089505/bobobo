@@ -34,11 +34,23 @@
 	margin-left:45px;
 	clear: both;
 }
+.personal_xiu_content>li:nth-last-child(1){
+	margin-top:-20px;
+}
 .personal_main .aaa{
-	width:118px;
+	width:70px;
 	display: block;
-	margin-left:80px;
-	margin-top:20px;
+	margin-left:-50px;
+	float: left;
+	background:#FAF2CC;
+	border-radius: 8px;
+	
+}
+.personal_main .bbbb{
+	width:70px;
+	display: block;
+	margin-left:40px;
+	float: left;
 	background:#FAF2CC;
 	border-radius: 8px;
 }
