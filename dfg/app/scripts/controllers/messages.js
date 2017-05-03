@@ -18,4 +18,5 @@
   	 $scope.home = function(){
 	$state.go('home')
 }  	 	
+         	
   })
