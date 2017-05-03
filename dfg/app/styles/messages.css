@@ -219,32 +219,31 @@ i.cate_sort {
 .messages_mian{
 	width: 800px;
     margin: 0 auto;
+    height:calc(100vh - 140px);
     margin-top: 60px;
     background: #fff;
-    padding-top: 30px;
+    padding-top: 20px;
+    position:relative;
 }
-.messages_mian p{
+.messages_mian>p{
 	width:100%;
 	margin:0 auto;
 	font-size:20px;
 }
-.messages_mian p span:first-child{
-	float:left;
-	margin-left:60px;
-}
-.messages_mian p span:last-child{
+.messages_mian>p span:last-child{
 	float:right;
 	margin-right:60px;
 }
 .messages_mian ul{
-	clear: both;
-    font-size: 16px;
+    font-size: 16px; 
     width: 600px;
+    height:calc(100% - 	133px);
     margin: 0 auto;
-    margin-top: 73px;
+    overflow: hidden;
+    margin-top: 53px;
 }
 .messages_mian ul li{
-	line-height: 25px;
+	line-height: 23px;
     border-bottom: 1px solid #ccc;
     margin-top: 10px;
 }
@@ -255,17 +254,33 @@ i.cate_sort {
     margin-top: -10px;
     margin-bottom: 7px;
 }
+
 .messages_mian ul li p{
     width: 350px;
     text-align: left;
+    font-size: 14px;
     margin-left: 60px;
     text-overflow: ellipsis;
-    height: 24px;
+    height: 21px;
     overflow: hidden;
 }
-.messages_mian div{
-	width:170px;
-	margin: 0 auto;
+.baa{
+	width:100%;
+	height:40px;
+	margin-top:30px;
+}
+.baa>p{
+	float:left;
+}
+.baa>p:nth-child(1){
+	margin-left:200px;
+}
+.baa>p:nth-child(2){
+	font-size:20px;
+	margin-left:100px;
+}
+.baa>p:nth-child(3){
+	margin-left:100px;
 }
 .messages_mian div button:first-child{
 	margin-right:40px;
