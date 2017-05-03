@@ -1,10 +1,17 @@
 #details {
+position:absolute;
+	overflow: hidden
+    width: 100vw;
 	background: url(../images/sgbk_lemma_bg.jpg);
-}
 
+}
+.box1{
+	width:100%;
+	
+}
 #header .wrap {
 	position: relative;
-	overflow: hidden
+	
 }
 
 .logo {

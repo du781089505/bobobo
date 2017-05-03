@@ -107,6 +107,41 @@ router.post('/upload',function(req,res){
 })
 
 
+//往后台传
+
+router.post('/chuantu',function(req,res){
+	console.log(21312312313)
+    var id=req.body.id;
+	var img=req.body.img;
+	console.log(id,img)
+		save(id,img,function(err,result){
+	      if(err){
+			res.send(err);
+		}else if(result){
+			console.log('ttototo'+result);
+			res.send(result)
+		}
+   });
+})
+function save(img,id,callback){//接受参数  ，自己命名的可以随便写
+	pool.getConnection(function(err,conn){
+		var sql="insert into user(img) values(?) where id=?"//这儿是数据库中的列名
+	conn.query(sql,[img,id],function(err,result){//这儿是接受参数，自己所起的名字
+			if(err){
+				console.log("getAllUsers Error:"+err.message);
+				return;
+			}
+			conn.release();  //释放连接
+			console.log("11111")
+			callback(err,result)
+	})
+	})
+	
+}
+
+
+
+
 //修改个人信息
 
 router.get('/xiugaihou',function(req,res){
@@ -173,6 +208,105 @@ function gai(id,name,password,tel,qq,age,callback){//这儿接收上面的传参
 			console.log("result:"+result)
 			if(err){
 				console.log("gai Error:"+err.message);
+				return;
+			}
+			conn.release();  //释放连接
+			callback(err,result)
+		})
+	})
+}
+
+
+
+
+router.get('/yifa',function(req,res){
+	 var id=req.query.id;
+	 console.log(11111111111111111)
+     console.log(id)
+    yi(id,function(err,result){
+    	 if(err){
+			res.send(err);
+		}else if(result){
+			console.log('ttototo'+result);
+			res.send(result)
+		}
+    })
+})
+
+
+function yi(id,callback){
+	pool.getConnection(function(err,conn){
+		var cha_sql="select * from content where id=?";
+		conn.query(cha_sql,[id],function(err,result){ 
+			console.log("result:"+result)
+                console.log(213313123)
+			if(err){
+				console.log("cha Error:"+err.message);
+				return;
+			}
+			conn.release();  //释放连接
+			callback(err,result)
+		})
+	})
+}
+
+
+///   获取我已经收藏的uid
+router.get('/yicang',function(req,res){
+	 var id=req.query.id;
+	 console.log(222222222222222)
+     console.log(id)
+    cang(id,function(err,result){
+    	 if(err){
+			res.send(err);
+		}else if(result){
+			console.log('ttototo'+result);
+			res.send(result)
+		}
+    })
+})
+
+
+function cang(id,callback){
+	pool.getConnection(function(err,conn){
+		var cha_sql="select * from shoucang where id=?";
+		conn.query(cha_sql,[id],function(err,result){ 
+			console.log("result:"+result)
+                console.log(213313123)
+			if(err){
+				console.log("cha Error:"+err.message);
+				return;
+			}
+			conn.release();  //释放连接
+			callback(err,result)
+		})
+	})
+}
+
+
+router.get('/yican',function(req,res){
+	 var uid=req.query.uid;
+	 console.log(222222222222222)
+     console.log(uid)
+    can(uid,function(err,result){
+    	 if(err){
+			res.send(err);
+		}else if(result){
+			console.log('ttototo'+result);
+			res.send(result)
+		}
+    })
+})
+
+
+function can(uid,callback){
+	pool.getConnection(function(err,conn){
+		var cha_sql="select * from content where uid=?";
+		conn.query(cha_sql,[uid],function(err,result){ 
+			console.log("result:"+result)
+                console.log(213313123)
+			if(err){
+				console.log("cha Error:"+err.message);
 				return;
 			}
 			conn.release();  //释放连接

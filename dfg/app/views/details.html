@@ -1,4 +1,4 @@
-<div ng-controller="detailsCtrl">
+<div ng-controller="detailsCtrl" class="box1">
 	
 
 <div id="details"  class="wrapper_home">
@@ -57,99 +57,32 @@
 			<h4>全部评论: 5条</h4>
 		</div>
 		<ul>
-			<li postdata="17470" usdata="20035">
+			<li postdata="17470" usdata="20035" ng-repeat="a in too">
 				<div class="pd5">
-					<a class="avt fl" target="_blank" href="#"><img src="http://qzapp.qlogo.cn/qzapp/100516179/5AD4BF326DD5B4D6E12FD08F60EDDBB0/100" /></a>
+					<a href="" class="avt fl">
+						<img src="../images/100.jpg"/>
+					</a>
 					<div class="comment_content">
 						<h5>
-									<div class="fl"><a class="comment_name" href="#">爱玩</a><span>2天前</span></div>
+									<div class="fl"><a class="comment_name" href="#">{{a.name}}</a></div>
 									<div class="clear"></div>
 								</h5>
 						<div class="comment_p">
-							<div class="comment_pct">太赞了</div>
+							<div class="comment_pct">{{a.pcon}}</div>
 						</div>
 					</div>
 					<div class="clear"></div>
 					<div class="comment_reply"></div>
 				</div>
 			</li>
-			<li postdata="17468" usdata="20035">
-				<div class="pd5">
-					<a class="avt fl" target="_blank" href="#"><img src="http://qzapp.qlogo.cn/qzapp/100516179/5AD4BF326DD5B4D6E12FD08F60EDDBB0/100" /></a>
-					<div class="comment_content">
-						<h5>
-									<div class="fl"><a class="comment_name" href="#">爱玩</a><span>2天前</span></div>
-									<div class="clear"></div>
-								</h5>
-						<div class="comment_p">
-							<div class="comment_pct">顶顶顶顶顶多大</div>
-							<div class="quote">
-								<div class="pd10">看看看看</div>
-							</div>
-						</div>
-					</div>
-					<div class="clear"></div>
-					<div class="comment_reply"></div>
-				</div>
-			</li>
-			<li postdata="17467" usdata="20035">
-				<div class="pd5">
-					<a class="avt fl" target="_blank" href="#"><img src="http://qzapp.qlogo.cn/qzapp/100516179/5AD4BF326DD5B4D6E12FD08F60EDDBB0/100" /></a>
-					<div class="comment_content">
-						<h5>
-									<div class="fl"><a class="comment_name" href="#">爱玩</a><span>2天前</span></div>
-									<div class="clear"></div>
-								</h5>
-						<div class="comment_p">
-							<div class="comment_pct">看看看看</div>
-							<div class="quote">
-								<div class="pd10">dsafdafds</div>
-							</div>
-						</div>
-					</div>
-					<div class="clear"></div>
-					<div class="comment_reply"></div>
-				</div>
-			</li>
-			<li postdata="17305" usdata="1959">
-				<div class="pd5">
-					<a class="avt fl" target="_blank" href="#"><img src="http://qzapp.qlogo.cn/qzapp/100516179/21B6575BFBCD8F0604A84A5225EE1145/100" /></a>
-					<div class="comment_content">
-						<h5>
-									<div class="fl"><a class="comment_name" href="#">亻夫</a><span>6天前</span></div>
-									<div class="clear"></div>
-								</h5>
-						<div class="comment_p">
-							<div class="comment_pct">dsafdafds</div>
-						</div>
-					</div>
-					<div class="clear"></div>
-					<div class="comment_reply"></div>
-				</div>
-			</li>
-			<li postdata="17263" usdata="3984">
-				<div class="pd5">
-					<a class="avt fl" target="_blank" href="#"><img src="http://tp1.sinaimg.cn/1860596552/180/40037759629/1" /></a>
-					<div class="comment_content">
-						<h5>
-									<div class="fl"><a class="comment_name" href="#">wenrou</a><span>7天前</span></div>
-									<div class="clear"></div>
-								</h5>
-						<div class="comment_p">
-							<div class="comment_pct">能不能直接拖动换排序···人性化点！</div>
-						</div>
-					</div>
-					<div class="clear"></div>
-					<div class="comment_reply"></div>
-				</div>
-			</li>
+			
 		</ul>
 
 	</div>
 	<div id="us_panel2" ng-show="zai">
 		<table width="100%" height="100%" cellspacing="0" border="0">
 			<tr>
-				<td class="us_panel_like"><i></i><span>收藏</span></td>
+				<td class="us_panel_like"><i></i><span ng-click="shoucang()">收藏</span></td>
 				<td class="us_panel_menu">
 					<div class="arrow_top"></div><i></i>
 					<div class="us_panel_menu_left"></div>
@@ -162,12 +95,12 @@
 	<div class="details_comment" ng-show="buzai">
 		<div id="us_panel3">
 			<p ng-click="us_panel_post2()">发表</p>
-			<p ng-click="us_panel_post2()">返回</p>
+			<p ng-click="us_panel_post3()">返回</p>
 		</div>
 		<ul class="details_comment_mian">
 			<h3>Dear, please post your comments</h3>
 			
-			<li><span>Message :</span><textarea placeholder="Your Message to Us"></textarea></li>
+			<li><span>Message :</span><textarea placeholder="Your Message to Us" ng-model="pinglun"></textarea></li>
 		</ul>
 	</div>
 </div>

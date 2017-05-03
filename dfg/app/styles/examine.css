@@ -1,10 +1,12 @@
 body{
 	background:#ebe7dd;
+	
 }
 #examine{
 	width:100%;
 /*	background: url(../images/personal_beijing.jpg) no-repeat;*/
 	background:#ebe7dd;
+	position:absolute;
 }
 #examine .examine_mian{
 	width: 800px;

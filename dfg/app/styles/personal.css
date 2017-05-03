@@ -34,11 +34,23 @@
 	margin-left:45px;
 	clear: both;
 }
+.personal_xiu_content>li:nth-last-child(1){
+	margin-top:-20px;
+}
 .personal_main .aaa{
-	width:118px;
+	width:70px;
 	display: block;
-	margin-left:80px;
-	margin-top:20px;
+	margin-left:-50px;
+	float: left;
+	background:#FAF2CC;
+	border-radius: 8px;
+	
+}
+.personal_main .bbbb{
+	width:70px;
+	display: block;
+	margin-left:40px;
+	float: left;
 	background:#FAF2CC;
 	border-radius: 8px;
 }
@@ -356,9 +368,6 @@ i.cate_sort {
 
 .sort_b.ton {
 	background-color: #343435;
-	-moz-box-shadow: 0px 2px 6px #1f1f1f inset;
-	-o-box-shadow: 0px 2px 6px #1f1f1f inset;
-	-webkit-box-shadow: 0px 2px 6px #1f1f1f inset;
 	box-shadow: 0px 2px 6px #1f1f1f inset
 }
 
@@ -382,6 +391,7 @@ i.cate_sort {
 	float:right;
 	width:480px;
 	height:400px;
+	overflow:auto;
 	background:#fff;
 }
 .personal_main_right button{
