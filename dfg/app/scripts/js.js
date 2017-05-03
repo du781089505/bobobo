@@ -1,3 +1,4 @@
+
 $(".reg_bar_close").click(function(){
 		$("#reg_index").css({"top":"0px"})
 	})
@@ -154,4 +155,6 @@ $(".reg_bar_close").click(function(){
 				$(".aa").html(c)
 				aa()
 			})
+			
+			
 				

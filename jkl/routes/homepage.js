@@ -221,6 +221,36 @@ function cha(con,cott,callback){
 	})
 }
 
+//查询个人信息
+router.get('/ca',function(req,res){
+	 var id=req.query.id
+     console.log(id)
+    ca(id,function(err,result){
+    	 if(err){
+			res.send(err);
+		}else if(result){
+			console.log('ttototo'+result);
+			res.send(result)
+		}
+    })
+})
+
+
+function ca(id,callback){
+	pool.getConnection(function(err,conn){
+		var cha_sql="select * from user where id=?";
+		conn.query(cha_sql,[id],function(err,result){ 
+			console.log("result:"+result)
+                console.log(213313123)
+			if(err){
+				console.log("cha Error:"+err.message);
+				return;
+			}
+			conn.release();  //释放连接
+			callback(err,result)
+		})
+	})
+}
 
 
 //  关键字搜索的  搜索内容的

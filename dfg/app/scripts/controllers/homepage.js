@@ -57,9 +57,9 @@
 		}
 		
 	}
+
 //		登陆
 		$scope.denglu = function(){
-			console.log("1")
 			console.log($scope.username,$scope.password)
 			$http({
 			url:"http://"+ip+"/homepage/login",
@@ -70,17 +70,12 @@
 			}
 		}).then(function(data){
 		  if(data.data.flag == 1){
-		  	$scope.tishi = true;
-		  	
-		  
-		  }else if(data.data.flag == 2){
-		 
+		  	$scope.tishi = true;	  
+		  }else if(data.data.flag == 2){ 
 		  	$scope.tishi1 = true;
 		  }else if(data.data.flag == 3){
 		  	$scope.tishi2 = true;
-		  }
-			
-			
+		  }		
 		})
 		}
 		//注册
