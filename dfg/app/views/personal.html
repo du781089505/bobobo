@@ -21,21 +21,7 @@
 				<input type="file" id="a" />
 
 				<ul class="personal_ziliao">
-					<li><i>昵称：</i>
-						<p>你猜猜</p>
-					</li>
-					<li><i>性别：</i>
-						<p>你猜猜</p>
-					</li>
-					<li><i>联系方式：</i>
-						<p>你猜猜你猜猜</p>
-					</li>
-					<li><i>QQ：</i>
-						<p>你猜猜</p>
-					</li>
-					<li><i>邮箱：</i>
-						<p>你猜猜</p>
-					</li>
+					
 				</ul>
 				<button class="bbb">修改资料</button>
 				<div class='personal_main_xiu'>
@@ -148,4 +134,21 @@
 		$('.aaa').click(function(){
 			$('.personal_main_xiu').css("display","none")
 		})
+		$.ajax({
+			type: "get",
+			url: "http://"+ip+"/personal/xun",
+			data:"username="+localStorage.username,	
+			success: function(data) {
+				console.log(data)
+					var html = ""
+						
+						for(var i = 0; i < data.length; i++) {
+						html +="<li><i>昵称：</i><p>"+data[i].name+"</p></li><li><i>QQ：</i><p>"+data[i].qq+"</p></li><li><i>年龄：</i><p>"+data[i].age+"</p></li><li><i>联系方式：</i><p>"+data[i].tel+"</p></li>"
+						}
+						$(".personal_ziliao").append(html)
+						
+				
+			}
+		});
+   
 </script>

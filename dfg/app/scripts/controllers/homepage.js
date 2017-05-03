@@ -46,8 +46,11 @@
 					url: "http://" + ip + "/homepage/cha",
 					method: "get"
 				}).then(function(data) {
-//						console.log(data.data)
-					$scope.arr1=data.data	
+						console.log(data.data)
+					$scope.arr1=data.data
+					
+					
+					
 
 				})
 		}else if($scope.e =="2"){
@@ -70,8 +73,11 @@
 			}
 		}).then(function(data){
 		  if(data.data.flag == 1){
-		  	$scope.tishi = true;	  
-		  }else if(data.data.flag == 2){ 
+		  	$scope.tishi = true;
+		  	console.log(data)
+		  	localStorage.username = $scope.username
+		  
+		  }else if(data.data.flag == 2){
 		  	$scope.tishi1 = true;
 		  }else if(data.data.flag == 3){
 		  	$scope.tishi2 = true;
@@ -129,5 +135,17 @@
 			
 		})
 	}
-	
+	$http({
+			url:"http://"+ip+"/personal/xun",
+			method:"get",
+			params:{username:localStorage.username},
+			headers:{
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+			
+		}).then(function(data){
+		    console.log(data.data[0].id)
+		    localStorage.id = data.data[0].id
+			localStorage.name = data.data[0].name
+		})
 })
