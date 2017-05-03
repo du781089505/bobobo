@@ -41,7 +41,7 @@
 
 			<div class="clear"></div>
 			<div class="details_mian" ng-repeat="a in arr">
-				<h2>{{a.title}}</h2>
+				<h3>{{a.title}}</h3>
 				<p><b>{{a.fenlei}}</b></p>
 				<p class="details_content">
 					{{a.content}}
@@ -161,17 +161,8 @@
 	</div>
 	<div class="details_comment" ng-show="buzai">
 		<div id="us_panel3">
-			<table width="100%" height="100%" cellspacing="0" border="0">
-				<tr>
-					<td class="us_panel_like2"><i></i><span>发表</span></td>
-					<td class="us_panel_menu2">
-						<div class="arrow_top2"></div><i></i>
-						<div class="us_panel_menu_left2"></div>
-						<div class="us_panel_menu_right2"></div>
-					</td>
-					<td class="us_panel_post2" ng-click="us_panel_post2()"><i></i><span>返回</span></td>
-				</tr>
-			</table>
+			<p ng-click="us_panel_post2()">发表</p>
+			<p ng-click="us_panel_post2()">返回</p>
 		</div>
 		<ul class="details_comment_mian">
 			<h3>Dear, please post your comments</h3>
@@ -216,5 +207,6 @@
 				</form>
 			</div>
 	</div>
+	
 </div>
 <script src="../scripts/gonggong.js"></script>

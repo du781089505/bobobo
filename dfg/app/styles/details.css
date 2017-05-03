@@ -1,6 +1,9 @@
 #details {
-	background: #f0f1f1;
+
 	position:absolute;
+
+	background: url(../images/sgbk_lemma_bg.jpg);
+
 }
 
 #header .wrap {
@@ -214,6 +217,10 @@ i.cate_sort {
 #comment {
 	background: #fff;
 	padding-bottom:43px;
+	height:calc(100vh - 450px);
+	width:800px;
+	margin:20px auto;
+	overflow-y:auto;
 }
 
 .quote {
@@ -224,7 +231,7 @@ i.cate_sort {
 #comment ul li {
 	display: block;
 	padding: 10px 0;
-	border-bottom: 1px solid #e5e5e5
+	border-bottom: 1px solid #e5e5e5;
 }
 
 #comment ul li .avt {
@@ -305,6 +312,8 @@ i.cate_sort {
 	background: #fff;
 	margin-bottom: 15px;
 	width: 800px;
+	height:300px;
+	overflow-y:auto;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -313,9 +322,9 @@ i.cate_sort {
 	line-height: 20px;
 }
 
-.details_mian h2 {
+.details_mian h3 {
 	display: block;
-	margin-top: 25px;
+	margin-top:5px;
 }
 
 .details_mian p b {
@@ -388,30 +397,31 @@ i.cate_sort {
 }
 
 
-#us_panel2 td ,#us_panel3 td {
+#us_panel2 td{
 	height: 100%;
-	text-align: center
+	text-align: center;
 }
+
 .works_view dt {
     background-position: -70px -148px;
 }
 
-#us_panel2 td span,#us_panel3 td span {
+#us_panel2 td span{
 	display: inline-block;
 	vertical-align: middle;
 	width: 65px;
 	color:#777;
 }
 
-#us_panel2 td span em ,#us_panel3 td span em{
+#us_panel2 td span em{
 	font-style: normal
 }
-#us_panel2 .us_panel_like i,#us_panel3 .us_panel_like2 i {
+#us_panel2 .us_panel_like i{
     width: 16px;
     height: 16px;
     background-position: -112px -304px;
 }
-#us_panel2 td i,#us_panel3 td i {
+#us_panel2 td i{
     display: inline-block;
     vertical-align: middle;
     position: relative;
@@ -434,7 +444,7 @@ i.cate_sort {
     -o-transition: -o-transform 0.2s cubic-bezier(0.33, 0.66, 0.66, 1);
     transition: transform 0.2s cubic-bezier(0.33, 0.66, 0.66, 1);
 }
-#us_panel2 .us_panel_menu i,#us_panel3 .us_panel_menu2 i {
+#us_panel2 .us_panel_menu i {
     width: 22px;
     height: 16.5px;
     background-position: -112px -256px;
@@ -455,7 +465,7 @@ i.cate_sort {
     right: 0;
     height: 100%;
 }
-#us_panel2 .us_panel_post i,#us_panel3 .us_panel_post2 i {
+#us_panel2 .us_panel_post i{
     width: 16px;
     height: 16px;
     background-position: -112px -208px;
@@ -471,14 +481,28 @@ i.cate_sort {
 .details_comment{
 	width: 100%;
 	overflow: hidden;
-	background: #fff;
+	position: relative;
+	top:-500px;
+	left:0px;
 }
 #us_panel3 {
-    width: 100%;
+    width: 600px;
     height: 44px;
-    background: #fff;
-    border-top: 1px solid #e3e3e3;
-    border-bottom: 1px solid #e3e3e3;
+    background: #000;
+    opacity: 0.6;
+    border: 1px solid #e3e3e3;
+    margin: 0 auto;
+    color:#666;
+}
+#us_panel3 p{
+	float:left;
+	width: calc(100%/2);
+	text-align: center;
+	line-height: 44px;
+	font-size:20px ;
+}
+#us_panel3 p:first-child{
+	border-right:1px solid #ccc;
 }
 .details_comment_mian{
 	width:600px;
