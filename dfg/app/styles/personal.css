@@ -7,7 +7,7 @@
 	position: relative;
 	background:url(../images/sgbk_lemma_bg.jpg);
 }
-.wrapper_home{
+/*.wrapper_home{
 	position:absolute;
 	left:0px;
 	top:0px;
@@ -17,7 +17,7 @@
 	height:100vh;
 	transition:1s all;
 	overflow:hidden;
-}
+}*/
 .personal_main{
 	width: 800px;
 	height:600px;
@@ -69,10 +69,9 @@
     height: 400px;
     background: url(../images/beij.jpg);
     color: #fff;
-    opacity: 0.8;
     border-radius: 35px;
     position: absolute;
-    top: 180px;
+    top: 175px;
     left: 605px;
     display: none;
 }

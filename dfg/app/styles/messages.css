@@ -212,9 +212,8 @@ i.cate_sort {
 /*头部----------------------------------------------------*/
 #messages{
 	width:100%;
-/*	background: url(../images/personal_beijing.jpg) no-repeat;*/
+	background: url(../images/sgbk_lemma_bg.jpg);
 	overflow: hidden;
-	background:#ebe7dd;
 }
 .messages_mian{
 	width: 800px;
