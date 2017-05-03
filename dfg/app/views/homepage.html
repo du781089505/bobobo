@@ -101,7 +101,7 @@
 	</div>
 	<div ng-show="a" class="home_content_right1">
 		<div ng-repeat="a1 in arr1" ng-click="to()">
-			<p><img alt="" />发布人：{{a1.id}}</p>
+			<p><img alt="" />发布人：{{a1.name}}</p>
 			<p>类型 :{{a1.fenlei}}</p>
             <p>标题{{a1.title}}</p>
             <p>内容:{{a1.content}}</p>
@@ -110,7 +110,7 @@
 	</div>
 	<div ng-show="b" class="home_content_right1">
 		<div ng-repeat="r in att" ng-click="to()">
-			<p><img alt="" />发布人：{{a1.id}}</p>
+			<p><img alt="" />发布人：{{r.name}}</p>
 			<p>类型 :{{r.fenlei}}</p>
             <p>标题{{r.title}}</p>
             <p>内容:{{r.content}}</p>
@@ -250,8 +250,8 @@
 					<div class="login_b_i">
 						<div class="login_input">
 
-							<div class="login_user"><input type="text" name="email" placeholder="邮箱/帐号" ng-model="username"/><i></i></div>
-							<div class="login_password"><input type="password" name="password" placeholder="密码" ng-model="password"/><i></i></div>
+							<div class="login_user"><input type="text" name="email" placeholder="邮箱/帐号" ng-model="username" class="yhm"/><i></i></div>
+							<div class="login_password"><input type="password" name="password" placeholder="密码" ng-model="password" class="mm"/><i></i></div>
 						</div>
 					</div>
 					<a class="login_submit" ng-click="denglu()">登录</a>
@@ -281,4 +281,4 @@
 			<button class="queding4" ng-click="queding()">确定</button>
 		</div>
 </div>
-<script src="../scripts/js.js"></script>		
+<script src="../scripts/js.js"></script>

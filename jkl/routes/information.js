@@ -16,25 +16,27 @@ var pool = mysql.createPool({
 
 router.post('/tianjia',function(req,res){
 	console.log(21312312313)
+	var id=req.body.id;
 	var title=req.body.title;
-	var content=req.body.content;//后面的password是页面上的，前面的password是自己在后台重新命名的
+	var conten=req.body.content;//后面的password是页面上的，前面的password是自己在后台重新命名的
 	var time=req.body.time;
 	var fenlei=req.body.fenlei;
-	console.log(title,content,time,fenlei)
-	save(title,content,time,fenlei,function(err,result){ //这儿是往下面传参的
+	var name=req.body.name;
+	console.log(id,title,conten,time,fenlei,name)
+	save(id,title,conten,time,fenlei,name,function(err,result){ //这儿是往下面传参的
 		     if(err){
 			res.send(err);
 		}else if(result){
 			console.log('ttototo'+result);
-			res.send(result)
+			res.send({flag:1})
 		}
 	})
 })
 
-function save(title,content,time,fenlei,callback){//接受参数  ，自己命名的可以随便写
+function save(id,title,conten,time,fenlei,name,callback){//接受参数  ，自己命名的可以随便写
 	pool.getConnection(function(err,conn){
-		var sql="insert into content(title,content,time,fenlei) values(?,?,?,?)"//这儿是数据库中的列名
-	conn.query(sql,[title,content,time,fenlei],function(err,result){//这儿是接受参数，自己所起的名字
+		var sql="insert into content(id,title,content,time,fenlei,name) values(?,?,?,?,?,?)"//这儿是数据库中的列名
+	conn.query(sql,[id,title,conten,time,fenlei,name],function(err,result){//这儿是接受参数，自己所起的名字
 			if(err){
 				console.log("getAllUsers Error:"+err.message);
 				return;

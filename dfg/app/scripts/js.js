@@ -1,3 +1,4 @@
+
 $(".reg_bar_close").click(function(){
 		$("#reg_index").css({"top":"0px"})
 	})
@@ -72,7 +73,7 @@ $(".reg_bar_close").click(function(){
 					var html = ""
 						$(".aaaa").html("");
 						for(var i = 0; i < data.length; i++) {
-						html +="<div class='niye'><p>发布人</p><p>类型 :"+data[i].fenlei+"</p><p>标题:"+data[i].title+"</p><p>内容:"+data[i].content+"</p><p>发布时间:"+data[i].time+"</p></div>"
+						html +="<div class='niye'><p>发布人:"+data[i].name+"</p><p>类型 :"+data[i].fenlei+"</p><p>标题:"+data[i].title+"</p><p>内容:"+data[i].content+"</p><p>发布时间:"+data[i].time+"</p></div>"
 						}
 						$(".aaaa").append(html)
 						$(".bbbb").html("")
@@ -115,7 +116,7 @@ $(".reg_bar_close").click(function(){
 						var html = ""
 						$(".aaaa").html("");
 						for(var i = 0; i < data.length; i++) {
-								html +="<div class='niye' name="+i+"><p>发布人</p><p>类型 :"+data[i].fenlei+"</p><p>标题:"+data[i].title+"</p><p>内容:"+data[i].content+"</p><p>发布时间:"+data[i].time+"</p></div>"
+								html +="<div class='niye' name="+i+"><p>发布人:"+data[i].name+"</p><p>类型 :"+data[i].fenlei+"</p><p>标题:"+data[i].title+"</p><p>内容:"+data[i].content+"</p><p>发布时间:"+data[i].time+"</p></div>"
 								da.push(data[i])
 						}
 						$(".aaaa").append(html)
@@ -154,4 +155,6 @@ $(".reg_bar_close").click(function(){
 				$(".aa").html(c)
 				aa()
 			})
+			
+			
 				
