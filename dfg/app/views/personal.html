@@ -21,16 +21,16 @@
 				<input type="file" id="a" />
 
 				<ul class="personal_ziliao">
-					
+
 				</ul>
 				<button class="bbb">修改资料</button>
 				<div class='personal_main_xiu'>
 					<ul class="personal_xiu_content">
-						<li><i>昵称：</i><input type="text" class="nicheng"/></li>
-						<li><i>电话：</i><input type="text" class="dianhua"/></li>
-						<li><i>QQ：</i><input type="text" class="qq"/></li>
-						<li><i>年龄：</i><input type="text" class="nianling"/></li>
-						<li><i>密码：</i><input type="text" class="mima"/></li>
+						<li><i>昵称：</i><input type="text" class="nicheng" /></li>
+						<li><i>电话：</i><input type="text" class="dianhua" /></li>
+						<li><i>QQ：</i><input type="text" class="qq" /></li>
+						<li><i>年龄：</i><input type="text" class="nianling" /></li>
+						<li><i>密码：</i><input type="text" class="mima" /></li>
 						<li><button class="aaa">确认</button><button class="bbbb">取消</button></li>
 					</ul>
 				</div>
@@ -39,14 +39,11 @@
 			<div class="personal_main_right">
 				<div class="main_right-top">
 					<button class='a' ng-model="yifa" id="yifa">我已发表</button>
-					<button class="b" ng-model="yicang">我已收藏</button>
+					<button class="b" ng-model="yicang" id="yicang">我已收藏</button>
 				</div>
 				<div class="main_right-bottom">
 					<ul class="d" style="display: none;">
-				        <li>我已收藏</li>
-				        <li>我已收藏</li>
-				        <li>我已收藏</li>
-				        <li>我已收藏</li>
+
 					</ul>
 					<ul class="c">
 					</ul>
@@ -84,138 +81,171 @@
 </div>
 
 <script>
-        var c=false;
-        $("#chu").click(function(){
-        	if(c==false){
-    	$(".wrapper_home").css({"left":"250px"})
-    	c=true;
-      }else{
-    	$(".wrapper_home").css({"left":"0px"})
-    	c=false;
-    }	
-        })
-        
+	var c = false;
+	$("#chu").click(function() {
+		if(c == false) {
+			$(".wrapper_home").css({
+				"left": "250px"
+			})
+			c = true;
+		} else {
+			$(".wrapper_home").css({
+				"left": "0px"
+			})
+			c = false;
+		}
+	})
+
 	function ww(el) {
-				var obj = document.querySelectorAll(el);
-				return obj.length > 1 ? obj : obj[0];
-			}
-		ww(".personal_tou").addEventListener("click",function(){
-			ww("#a").click();
-			ww("#a").addEventListener("change", function() {
-				//第一步创建文件对象
-					var img = this.files[0],
-					//创建了一个文件对象
-					fileTran = new FileReader();
-						//将文件转换为文本显示
-					fileTran.readAsDataURL(img);
-					//文件加载成功后执行事件
-					fileTran.onload = function() {
-						ww(".personal_tou").style.cssText = "width:118;height:115"
-						ww(".personal_tou").innerHTML = "<img id='img' src='" + this.result + "' style='width:100%;height:100%'/>";
-						var imgWidth = ww("#img").offsetWidth,
-							screenWidth= window.innerWidth,
-							imgHeight = ww("#img").offsetHeight,
-							screenHeight = window.innerHeight;
-						if(imgWidth >= screenWidth){
-							ww(".personal_tou > img").style.width = 0.8 * screenWidth +"px";
-						}
-						if(imgHeight >= screenHeight){
-							ww(".personal_tou > img").style.height = 0.8 * screenHeight +"px";
-						}
-
-					}
-				})
-
-		})
-		$('.a').click(function(){
-			$('.c').css("display","block");
-			$('.d').css("display","none")
-		})
-		$('.b').click(function(){
-			$('.d').css("display","block");
-			$('.c').css("display","none")
-		})
-		$('.bbb').click(function(){
-			$('.personal_main_xiu').css("display","block")
-		})
-		$('.bbbb').click(function(){
-			$('.personal_main_xiu').css("display","none")
-		})
-		$('.aaa').click(function(){
-			$.ajax({
-			type: "post",
-			url: "http://"+ip+"/personal/xiugaihou",
-			data:"name="+$('.nicheng').val()+"&age="+$('.nianling').val()+"&tel="+$('.dianhua').val()+"&qq="+$('.qq').val()+"&id="+localStorage.id+"&password="+$('.mima').val(),	
-			success: function(data) {
-				if(data.flag ==1){
-					$('.personal_main_xiu').css("display","none")
-					$.ajax({
-			type: "get",
-			url: "http://"+ip+"/personal/xun",
-			data:"username="+localStorage.username,	
-			success: function(data) {
-				console.log(data)
-				$(".personal_ziliao").html("")
-					var html = ""
-						
-						for(var i = 0; i < data.length; i++) {
-						html +="<li><i>昵称：</i><p>"+data[i].name+"</p></li><li><i>QQ：</i><p>"+data[i].qq+"</p></li><li><i>年龄：</i><p>"+data[i].age+"</p></li><li><i>联系方式：</i><p>"+data[i].tel+"</p></li>"
-						}
-						$(".personal_ziliao").append(html)
-	     $('.nicheng').val(data[0].name)		
-				$('.nianling').val(data[0].age)
-				$('.qq').val(data[0].qq)
-				$('.dianhua').val(data[0].tel)
-				$('.mima').val(data[0].password)
-			}
-		});
+		var obj = document.querySelectorAll(el);
+		return obj.length > 1 ? obj : obj[0];
+	}
+	ww(".personal_tou").addEventListener("click", function() {
+		ww("#a").click();
+		ww("#a").addEventListener("change", function() {
+			//第一步创建文件对象
+			var img = this.files[0],
+				//创建了一个文件对象
+				fileTran = new FileReader();
+			//将文件转换为文本显示
+			fileTran.readAsDataURL(img);
+			//文件加载成功后执行事件
+			fileTran.onload = function() {
+				ww(".personal_tou").style.cssText = "width:118;height:115"
+				ww(".personal_tou").innerHTML = "<img id='img' src='" + this.result + "' style='width:100%;height:100%'/>";
+				var imgWidth = ww("#img").offsetWidth,
+					screenWidth = window.innerWidth,
+					imgHeight = ww("#img").offsetHeight,
+					screenHeight = window.innerHeight;
+				if(imgWidth >= screenWidth) {
+					ww(".personal_tou > img").style.width = 0.8 * screenWidth + "px";
 				}
-				    console.log(data)
-					
+				if(imgHeight >= screenHeight) {
+					ww(".personal_tou > img").style.height = 0.8 * screenHeight + "px";
+				}
+
+			}
+		})
+
+	})
+	$('.a').click(function() {
+		$('.c').css("display", "block");
+		$('.d').css("display", "none")
+	})
+	$('.b').click(function() {
+		$('.d').css("display", "block");
+		$('.c').css("display", "none")
+	})
+	$('.bbb').click(function() {
+		$('.personal_main_xiu').css("display", "block")
+	})
+	$('.bbbb').click(function() {
+		$('.personal_main_xiu').css("display", "none")
+	})
+	$('.aaa').click(function() {
+		$.ajax({
+			type: "post",
+			url: "http://" + ip + "/personal/xiugaihou",
+			data: "name=" + $('.nicheng').val() + "&age=" + $('.nianling').val() + "&tel=" + $('.dianhua').val() + "&qq=" + $('.qq').val() + "&id=" + localStorage.id + "&password=" + $('.mima').val(),
+			success: function(data) {
+				if(data.flag == 1) {
+					$('.personal_main_xiu').css("display", "none")
+					$.ajax({
+						type: "get",
+						url: "http://" + ip + "/personal/xun",
+						data: "username=" + localStorage.username,
+						success: function(data) {
+							console.log(data)
+							$(".personal_ziliao").html("")
+							var html = ""
+
+							for(var i = 0; i < data.length; i++) {
+								html += "<li><i>昵称：</i><p>" + data[i].name + "</p></li><li><i>QQ：</i><p>" + data[i].qq + "</p></li><li><i>年龄：</i><p>" + data[i].age + "</p></li><li><i>联系方式：</i><p>" + data[i].tel + "</p></li>"
+							}
+							$(".personal_ziliao").append(html)
+							$('.nicheng').val(data[0].name)
+							$('.nianling').val(data[0].age)
+							$('.qq').val(data[0].qq)
+							$('.dianhua').val(data[0].tel)
+							$('.mima').val(data[0].password)
+						}
+					});
+				}
+				console.log(data)
+
 			}
 		});
-			
-		})
+
+	})
+	$.ajax({
+		type: "get",
+		url: "http://" + ip + "/personal/xun",
+		data: "username=" + localStorage.username,
+		success: function(data) {
+			console.log(data)
+			var html = ""
+
+			for(var i = 0; i < data.length; i++) {
+				html += "<li><i>昵称：</i><p>" + data[i].name + "</p></li><li><i>QQ：</i><p>" + data[i].qq + "</p></li><li><i>年龄：</i><p>" + data[i].age + "</p></li><li><i>联系方式：</i><p>" + data[i].tel + "</p></li>"
+			}
+			$(".personal_ziliao").append(html)
+			$('.nicheng').val(data[0].name)
+			$('.nianling').val(data[0].age)
+			$('.qq').val(data[0].qq)
+			$('.dianhua').val(data[0].tel)
+			$('.mima').val(data[0].password)
+		}
+	});
+
+	$("#yifa").click(function() {
 		$.ajax({
 			type: "get",
-			url: "http://"+ip+"/personal/xun",
-			data:"username="+localStorage.username,	
+			url: "http://" + ip + "/personal/yifa",
+			data: "id=" + localStorage.id,
 			success: function(data) {
 				console.log(data)
-					var html = ""
-						
-						for(var i = 0; i < data.length; i++) {
-						html +="<li><i>昵称：</i><p>"+data[i].name+"</p></li><li><i>QQ：</i><p>"+data[i].qq+"</p></li><li><i>年龄：</i><p>"+data[i].age+"</p></li><li><i>联系方式：</i><p>"+data[i].tel+"</p></li>"
-						}
-						$(".personal_ziliao").append(html)
-	     $('.nicheng').val(data[0].name)		
-				$('.nianling').val(data[0].age)
-				$('.qq').val(data[0].qq)
-				$('.dianhua').val(data[0].tel)
-				$('.mima').val(data[0].password)
-			}
-		});
-		
-		$("#yifa").click(function(){
-			$.ajax({
-			type: "get",
-			url:"http://"+ip+"/personal/yifa",
-			data:"id="+localStorage.id,	
-			success:function(data) {
-				console.log(data)
-				var html="";
+				var html = "";
 				$(".c").html("")
-				for(var i=0;i<data.length;i++){
-					html+="<li>"+data[i].title+"</li>"
+				for(var i = 0; i < data.length; i++) {
+					html += "<li>" + data[i].title + "</li>"
 				}
 				$(".c").append(html)
 			}
 		});
-		})
-	$("#shou").click(function(){
-		location.href="#!/home"
 	})
-	$("#xiao").click(function(){
-		location.href="#!/messages"
+	$("#shou").click(function() {
+		location.href = "#!/home"
+	})
+	$("#xiao").click(function() {
+		location.href = "#!/messages"
+	})
+
+	var arr = [];
+	$("#yicang").click(function() {
+		$.ajax({
+			type: "get",
+			url: "http://" + ip + "/personal/yicang",
+			data: "id=" + localStorage.id,
+			success: function(data) {
+
+				console.log(data)
+				console.log(data[0].uid)
+				$(".d").html("");
+				for(var i = 0; i < data.length; i++) {
+
+					$.ajax({
+						type: "get",
+						url: "http://" + ip + "/personal/yican",
+						data: "uid=" + data[i].uid,
+						success: function(data) {
+							var con = ""
+							con += "<li>" + data[0].title + "</li>"
+							$(".d").append(con)
+						}
+
+					});
+				}
+			}
+		});
 	})
 </script>

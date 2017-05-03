@@ -10,10 +10,6 @@
 		</div>
 		<div class="logo_msk"></div>
 	</div>
-	
-
-	
-	
 	<div class="information_mian">
 		<div class="information_content">
 			<div><span class="tishi">title：</span><input type="text" class="information_content_title" ng-model="title"/></div>
@@ -48,11 +44,32 @@
 			</form>
 		</div>
 		<ul>
-			<li class="nav_index menu_cur"><a><i></i><span>首页</span><b></b><div class="clear"></div></a></li>
-			<li class="nav_site" ng-click="personal()"><a><i></i><span>个人</span><b></b><div class="clear"></div></a></li>
-			<li class="nav_about" ng-click="xiaoxi()"><a><i></i><span>消息</span><b></b><div class="clear"></div></a></li>
+			<li class="nav_index menu_cur" id="shou"><a><i></i><span>首页</span><b></b><div class="clear"></div></a></li>
+			<li class="nav_site" ng-click="personal()" id="ge"><a><i></i><span>个人</span><b></b><div class="clear"></div></a></li>
+			<li class="nav_about" ng-click="xiaoxi()" id="xiao"><a><i></i><span>消息</span><b></b><div class="clear"></div></a></li>
 		</ul>
 </div>
 </div>
 
- <script src="../scripts/gonggong.js"></script>
+ <script>
+ 	 var n=false;
+    $(".menu_open").click(function(){
+    if(n==false){
+    	$(".wrapper_home").css({"left":"250px"})
+    	n=true;
+    }else{
+    	$(".wrapper_home").css({"left":"0px"})
+    	n=false;
+    }	
+	})
+     var m=true;
+     	$("#shou").click(function(){
+		location.href="#!/home"
+	})
+	$("#xiao").click(function(){
+		location.href="#!/messages"
+	})
+	$("#ge").click(function(){
+		location.href="#!/personal"
+	})
+ </script>

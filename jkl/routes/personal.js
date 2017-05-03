@@ -251,6 +251,69 @@ function yi(id,callback){
 }
 
 
+///   获取我已经收藏的uid
+router.get('/yicang',function(req,res){
+	 var id=req.query.id;
+	 console.log(222222222222222)
+     console.log(id)
+    cang(id,function(err,result){
+    	 if(err){
+			res.send(err);
+		}else if(result){
+			console.log('ttototo'+result);
+			res.send(result)
+		}
+    })
+})
+
+
+function cang(id,callback){
+	pool.getConnection(function(err,conn){
+		var cha_sql="select * from shoucang where id=?";
+		conn.query(cha_sql,[id],function(err,result){ 
+			console.log("result:"+result)
+                console.log(213313123)
+			if(err){
+				console.log("cha Error:"+err.message);
+				return;
+			}
+			conn.release();  //释放连接
+			callback(err,result)
+		})
+	})
+}
+
+
+router.get('/yican',function(req,res){
+	 var uid=req.query.uid;
+	 console.log(222222222222222)
+     console.log(uid)
+    can(uid,function(err,result){
+    	 if(err){
+			res.send(err);
+		}else if(result){
+			console.log('ttototo'+result);
+			res.send(result)
+		}
+    })
+})
+
+
+function can(uid,callback){
+	pool.getConnection(function(err,conn){
+		var cha_sql="select * from content where uid=?";
+		conn.query(cha_sql,[uid],function(err,result){ 
+			console.log("result:"+result)
+                console.log(213313123)
+			if(err){
+				console.log("cha Error:"+err.message);
+				return;
+			}
+			conn.release();  //释放连接
+			callback(err,result)
+		})
+	})
+}
 
 
 /* GET home page. */
