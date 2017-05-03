@@ -11,8 +11,9 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var homepage = require('./routes/homepage');
 var details = require('./routes/details');
-var personal = require('./routes/personal')
-var information = require('./routes/information')
+var personal = require('./routes/personal');
+var information = require('./routes/information');
+var messages = require('./routes/messages')
 var app = express();
 
 
@@ -51,6 +52,7 @@ app.use('/homepage', homepage);
 app.use('/details', details);
 app.use('/personal', personal);
 app.use('/information', information);
+app.use('/messages', messages);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
