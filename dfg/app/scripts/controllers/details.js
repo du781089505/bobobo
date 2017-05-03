@@ -12,6 +12,9 @@
   .controller('detailsCtrl', function($scope,$http,$state){
   	 $scope.zai = true;
   	 $scope.buzai = false;
+  	 $scope.messages = function(){
+  	 	$state.go("messages")
+  	 }
   	 $scope.detailscomment = function(){
   	 	$scope.zai = false;
   	 	$scope.buzai = true;

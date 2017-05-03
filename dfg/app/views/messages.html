@@ -18,29 +18,15 @@
 		<p>
 			<span>消息中心</span>
 		</p>
-		<ul>
-			<li>
-				<a href="JavaScript;">就这样就这样就这样就这样就这样就这样这样就这样这样就这样</a><span>同意</span><span>删除</span></li>
-			<li>
-				<a href="JavaScript;">就这样就这样就这样就这样就这样就这样</a><span>同意</span><span>删除</span></li>
-			<li>
-				<a href="JavaScript;">就这样就这样就这样就这样就这样就这样</a><span>同意</span><span>删除</span></li>
-			<li>
-				<a href="JavaScript;">就这样就这样就这样就这样就这样就这样</a><span>同意</span><span>删除</span></li>
-			<li>
-				<a href="JavaScript;">就这样就这样就这样就这样就这样就这样</a><span>同意</span><span>删除</span></li>
-			<li>
-				<a href="JavaScript;">就这样就这样就这样就这样就这样就这样</a><span>同意</span><span>删除</span></li>
-			<li>
-				<a href="JavaScript;">就这样就这样就这样就这样就这样就这样</a><span>同意</span><span>删除</span></li>
-			<li>
-				<a href="JavaScript;">就这样就这样就这样就这样就这样就这样</a><span>同意</span><span>删除</span></li>
-			<li>
-				<a href="JavaScript;">就这样就这样就这样就这样就这样就这样</a><span>同意</span><span>删除</span></li>
-			<li>
-				<a href="JavaScript;">就这样就这样就这样就这样就这样就这样</a><span>同意</span><span>删除</span></li>
+		<ul class="dadiao">
+			
+			
 		</ul>
-		<div><button>上一页</button><button>下一页</button></div>
+		<div class="baa">		
+		    <p><button class="shang">上一页</button></p>
+			<p><a class="aa"></a>/<a class="bb"></a></p>
+			<p><button class="xia">下一页</button></p>
+		</div>
 	</div>
 </div>
 <div id="menu">
@@ -81,4 +67,108 @@
 	</div>
 
  </div>
- <script src="../scripts/gonggong.js"></script>
+ <script>
+ 	$(".dadiao").delegate(".sc","click",function(){
+ 		var idd=$(this).attr("id")
+        console.log(idd)
+				$.ajax({
+				type: "get",
+				url:"http://"+ip+"/messages/shanchu?uid="+idd,
+				success: function(e) {
+					if(e.flag ==1){
+						
+						
+						location.reload();
+						
+					}else{
+						alert("失败")
+					}
+					
+					
+				}
+			})	
+					
+				
+			})
+ 	$.ajax({
+				type: "get",
+				url:"http://"+ip+"/messages/list",
+				success: function(e) {
+					
+//					console.log(111)
+//					console.log(e.flag)
+					
+					c = 1;
+					b = Math.ceil(e.length / 7)
+					n=Math.ceil((c-1)*7)
+					$(".aa").html(c)
+					$(".bb").html(b)
+					
+					aa();
+				}
+			})
+               var da =[]
+			function aa() {
+				$.ajax({
+					type: "get",
+					url: "http://"+ip+"/messages/jie",
+					data: {
+						c:n 
+					},
+					success: function(data) {
+						console.log(data)
+						
+						var ff = ""
+						$(".dadiao").html("");
+						var ff = ""
+					for(var i=0;i<data.length;i++){
+						ff+="<li ><p>"+data[i].title+"</p><span id="+data[i].uid+" class='sc'>删除</span></li>"
+					}
+					$('.dadiao').append(ff)
+					}
+				})
+			}
+			
+			$(".aaaa").delegate(".niye",'click',function(){
+//				console.log($(this).attr("name"))
+				console.log(da[$(this).attr("name")].uid)
+				var id = da[$(this).attr("name")].uid
+				location.href="#!/details?id="+id
+			})
+			$(".shang").click(function() {
+				c--;
+				n=Math.ceil((c-1)*7)
+				if(c <= 1) {
+					c = 1
+				document.querySelector(".shang").setAttribute("disabled", "disabled")	
+				}else if(c!=1){
+					document.querySelector(".xia").removeAttribute("disabled")
+				}
+				
+				$(".aa").html(c)
+				aa()
+			})
+			$(".xia").click(function() {
+				c++;
+				n=Math.ceil((c-1)*7)
+				if(c >= b) {
+					c = b
+				    document.querySelector(".xia").setAttribute("disabled", "disabled")
+				}else if(c != b){
+					  document.querySelector(".shang").removeAttribute("disabled")
+				}
+				$(".aa").html(c)
+				aa()
+			})
+			var n=false;
+    $(".menu_open").click(function(){
+    if(n==false){
+    	$(".wrapper_home").css({"left":"250px"})
+    	n=true;
+    }else{
+    	$(".wrapper_home").css({"left":"0px"})
+    	n=false;
+    }	
+	})
+			
+ </script>

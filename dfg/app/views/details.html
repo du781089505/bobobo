@@ -114,7 +114,7 @@
 		<ul>
 			<li class="nav_index menu_cur" ng-click="home()"><a><i></i><span>首页</span><b></b><div class="clear"></div></a></li>
 			<li class="nav_site" ng-click="personal()"><a><i></i><span>个人</span><b></b><div class="clear"></div></a></li>
-			<li class="nav_about"><a><i></i><span>消息</span><b></b><div class="clear"></div></a></li>
+			<li class="nav_about" ng-click="messages()"><a><i></i><span >消息</span><b></b><div class="clear"></div></a></li>
 		</ul>
 </div>
 <div id="user">
@@ -142,4 +142,15 @@
 	</div>
 	
 </div>
-<script src="../scripts/gonggong.js"></script>
+<script>
+	 var n=false;
+    $(".menu_open").click(function(){
+    if(n==false){
+    	$(".wrapper_home").css({"left":"250px"})
+    	n=true;
+    }else{
+    	$(".wrapper_home").css({"left":"0px"})
+    	n=false;
+    }	
+	})
+</script>
