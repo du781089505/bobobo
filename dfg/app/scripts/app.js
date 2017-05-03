@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('myApp', ['ui.router']).config(["$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
+angular.module('myApp', ['ui.router','ngMessages']).config(["$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
   	  $stateProvider.state("home",{
   	  	url:"/home",
   	  	templateUrl:"views/homepage.html"

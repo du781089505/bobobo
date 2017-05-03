@@ -209,13 +209,78 @@
 			
 			<div class="zhuce">
 				<ul>
-					<li>账&#x3000;号: <input type="text" ng-model="uname"/></li>
-					<li>密&#x3000;码: <input type="password" ng-model="pas"/></li>
-					<li>昵&#x3000;称: <input type="text" ng-model="name"/></li>
-					<li>年&#x3000;龄: <input type="text" ng-model="age"/></li>
-					<li>手机号: <input type="tel" ng-model="tel"/></li>
-					<li>QQ号 : <input type="text" ng-model="qq"/></li>
-					
+					<form name="yanzheng">
+						<li>账&#x3000;号: <input type="text"
+               name="need"
+               required
+               maxlength="15"
+               minlength="5"
+               ng-model="uname"
+               ng-pattern="/^[a-zA-Z][a-zA-Z0-9_]{4,15}$/"
+/>
+    <div ng-messages="yanzheng.need.$error">
+   		<span ng-message="required"> 账号提示：不写你试试</span>
+        <span ng-message="maxlength"> 账号提示：不能大于15位</span>
+        <span ng-message="minlength"> 账号提示：不能小于5位</span>
+        <span ng-message="pattern"> 账号提示：帐号不合法(由字母开头，允许5-16字节，允许字母数字下划线组成)</span>
+
+    </div></li>
+						<li>密&#x3000;码: <input type="password"
+               name="pas"
+               required
+               maxlength="15"
+               minlength="5"
+               ng-model="pas"
+/>
+    <div ng-messages="yanzheng.pas.$error">
+   		<span ng-message="required"> 密码提示：不写你试试</span>
+        <span ng-message="maxlength"> 密码提示：不能大于15位</span>
+        <span ng-message="minlength"> 密码提示：不能小于5位</span>
+    </div></li>
+						<li>昵&#x3000;称: <input type="text"
+               name="name"
+               required
+               ng-model="name"
+               ng-pattern="/^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$/"
+/>
+    <div ng-messages="yanzheng.name.$error">
+   		<span ng-message="required"> 昵称提示：不写你试试</span>
+        <span ng-message="pattern"> 昵称提示：最长不得超过7个汉字，或14个字节(数字，字母和下划线)</span>
+    </div></li>
+						<li>年&#x3000;龄: <input type="text"
+               name="age"
+               required
+               ng-model="age"
+               ng-pattern="/[0-9]{1,2}/"
+               maxlength="2"
+               minlength="1"
+/>
+    <div ng-messages="yanzheng.age.$error">
+   		<span ng-message="required"> 昵称提示：不写你试试</span>
+        <span ng-message="pattern"> 昵称提示：只能写数字</span>
+    </div></li>
+						<li>手机号: <input type="text"
+               name="tel"
+               required
+               ng-model="tel"
+               ng-pattern="/^((13[0-9])|(14[0-9])|(15[0-9])|(17[0-9])|(18[0-9]))\d{8}$/"
+/>
+    <div ng-messages="yanzheng.tel.$error">
+   		<span ng-message="required"> 手机提示：不写你试试</span>
+        <span ng-message="pattern"> 手机提示：请填写正确的手机号</span>
+    </div></li>
+						<li>QQ号 : <input type="text"
+               name="qq"
+               required
+               ng-model="qq"
+               maxlength="13"
+               ng-pattern="/[1-9][0-9]{4,10}/"
+/>
+    <div ng-messages="yanzheng.qq.$error">
+   		<span ng-message="required"> QQ提示：不写你试试</span>
+        <span ng-message="pattern"> QQ提示：请填写正确的QQ号</span>
+    </div></li>
+					</form>
 				</ul>
 				<button ng-click="zc()">完成</button>
 				

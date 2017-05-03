@@ -1349,9 +1349,8 @@ i.sort_com {
 	text-align: center
 }
 
-.reg_ct p {
-	line-height: 20px;
-	margin: 30px 0 20px 0
+.reg_ct span {
+	color:red;
 }
 
 #weibo_app {
@@ -1670,7 +1669,7 @@ i.sort_com {
 	margin-top: 100px;
 }
 .zhuce li{
-	margin-top: 25px;
+	margin-top: 10px;
 }
 .zhuce button{
 	margin-top: 30px;
