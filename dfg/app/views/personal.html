@@ -26,12 +26,23 @@
 				<button class="bbb">修改资料</button>
 				<div class='personal_main_xiu'>
 					<ul class="personal_xiu_content">
-						<li><i>昵称：</i><input type="text" class="nicheng" /></li>
+						<form name="xiu">
+						<li><i>昵称：</i><input type="text" name="name" required class="nicheng" ng-pattern="/^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$/" />
+								<div ng-messages="xiu.name.$error">
+									<span ng-message="required"> 昵称提示：不写你试试</span>
+									<span ng-message="pattern"> 昵称提示：最长不得超过7个汉字，或14个字节(数字，字母和下划线)</span>
+								</div></li>
 						<li><i>电话：</i><input type="text" class="dianhua" /></li>
 						<li><i>QQ：</i><input type="text" class="qq" /></li>
 						<li><i>年龄：</i><input type="text" class="nianling" /></li>
-						<li><i>密码：</i><input type="text" class="mima" /></li>
+						<li><i>密码：</i><input type="password" name="pas" required maxlength="15" minlength="5" class="mima" />
+								<div ng-messages="xiu.pas.$error">
+									<span ng-message="required"> 密码提示：不写你试试</span>
+									<span ng-message="maxlength"> 密码提示：不能大于15位</span>
+									<span ng-message="minlength"> 密码提示：不能小于5位</span>
+								</div></li>
 						<li><button class="aaa">确认</button><button class="bbbb">取消</button></li>
+						</form>
 					</ul>
 				</div>
 			</div>
@@ -54,10 +65,10 @@
 
 	<div id="menu">
 		<div class="search_wrap">
-			<form action="" method="get">
+			
 				<input type="text" name="search" class="search_input" placeholder="关键字查找" ng-model="search" ng-blur="hd()" />
 				<i class="reset_input"><i></i></i>
-			</form>
+
 		</div>
 		<ul>
 			<li class="nav_index menu_cur" id="shou">
