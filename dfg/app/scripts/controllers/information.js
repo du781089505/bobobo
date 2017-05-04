@@ -11,7 +11,11 @@
   angular.module('myApp')
   .controller('information', function($scope,$http,$state){
   	$scope.fabiao = function(){
-  		 var now1=new Date();
+  		
+  		if($scope.title==undefined || $scope.content==undefined ||$scope.fenlei==undefined ){
+  			alert("请将信息输入完整")
+  		}else{
+  			var now1=new Date();
             //让时间在页面显示
             
             	   $scope.time=now1.getFullYear()+'-'+now1.getMonth()+'-'+now1.getDate();
@@ -26,7 +30,9 @@
 				}).then(function(data) {
 					console.log(data.data)
 					if(data.data.flag == 1){
-						
+						$scope.title=""
+						$scope.content=""
+						$scope.fenlei=""
 					}else{
 						console.log("失败")
 					}
@@ -34,6 +40,10 @@
 //					$scope.arr1=data.data	
 
 				})
+  		}
+  		
+  		
+  		 
             }
          
   	

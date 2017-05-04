@@ -12,9 +12,9 @@
 	</div>
 	<div class="information_mian">
 		<div class="information_content">
-			<div><span class="tishi">title：</span><input type="text" class="information_content_title" ng-model="title"/></div>
+			<div><span class="tishi">title：</span><input type="text" class="information_content_title er" ng-model="title"/></div>
 			<div>
-				<span class="tishi">category：</span><select name="类别" ng-model="fenlei">
+				<span class="tishi">category：</span><select name="类别" ng-model="fenlei" class="qw">
 					<option value="CSS">css</option>
 					<option value="Js">js</option>
 					<option value="Angular">Angular</option>
@@ -26,7 +26,7 @@
 			</div>
 			<div>
 				<span class="tishi haha" >content：</span>
-				<textarea ng-model="content">
+				<textarea ng-model="content" class="ty">
 					
 				</textarea>
 			</div>
@@ -52,6 +52,8 @@
 </div>
 
  <script>
+ 	
+
  	 var n=false;
     $(".menu_open").click(function(){
     if(n==false){

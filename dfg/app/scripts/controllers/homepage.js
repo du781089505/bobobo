@@ -32,7 +32,12 @@
 	$scope.att = []
 	
 	$scope.xiaoxi = function(){
+		if( localStorage.status ==1){
 			$state.go("messages")
+		}else if( localStorage.status ==0){
+			alert("你没有权限")
+		}
+			
 	}
 	$scope.to = function(){
 			$state.go("details")
@@ -76,7 +81,7 @@
 		  	$scope.tishi = true;
 		  	console.log(data)
 		  	localStorage.username = $scope.username
-		  
+		   
 		  }else if(data.data.flag == 2){
 		  	$scope.tishi1 = true;
 		  }else if(data.data.flag == 3){
@@ -149,5 +154,6 @@
 		    console.log(data.data[0].id)
 		    localStorage.id = data.data[0].id
 			localStorage.name = data.data[0].name
+			 localStorage.status = data.data[0].status
 		})
 })
