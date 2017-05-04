@@ -171,7 +171,7 @@
 						}
 					});
 				}
-				console.log(data)
+//				console.log(data)
 
 			}
 		});
@@ -182,7 +182,7 @@
 		url: "http://" + ip + "/personal/xun",
 		data: "username=" + localStorage.username,
 		success: function(data) {
-			console.log(data)
+//			console.log(data)
 			var html = ""
 
 			for(var i = 0; i < data.length; i++) {
@@ -203,16 +203,24 @@
 			url: "http://" + ip + "/personal/yifa",
 			data: "id=" + localStorage.id,
 			success: function(data) {
-				console.log(data)
+//				console.log(data)
 				var html = "";
 				$(".c").html("")
 				for(var i = 0; i < data.length; i++) {
-					html += "<li>" + data[i].title + "</li>"
+					html += "<li class='h' u="+data[i].uid+">" + data[i].title + "</li>"
 				}
 				$(".c").append(html)
 			}
 		});
 	})
+	
+	$(".c").delegate(".h",'click',function(){
+//				
+				var q = $(this).attr("u")
+				
+				
+				location.href="#!/details?id="+q
+			})
 	$("#shou").click(function() {
 		location.href = "#!/home"
 	})
@@ -228,17 +236,19 @@
 			data: "id=" + localStorage.id,
 			success: function(data) {
 
-				console.log(data)
-				console.log(data[0].uid)
+//				console.log(data)
+//				console.log(data[0].uid)
+
 				$(".d").html("");
 				for(var i = 0; i < data.length; i++) {
 					$.ajax({
 						type: "get",
 						url: "http://" + ip + "/personal/yican",
 						data: "uid=" + data[i].uid,
-						success: function(data) {
+						success: function(t) {
 							var con = ""
-							con += "<li>" + data[0].title + "</li>"
+							console.log(t)
+							con = "<li class='tiao' m="+t[0].uid+">" + t[0].title + "</li>"
 							$(".d").append(con)
 						}
 
@@ -247,4 +257,11 @@
 			}
 		});
 	})
+	$(".d").delegate(".tiao",'click',function(){
+         
+				var qw = $(this).attr("m")
+				
+				 console.log(qw)
+				location.href="#!/details?id="+qw
+			})
 </script>

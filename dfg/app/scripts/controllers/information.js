@@ -13,7 +13,8 @@
   	$scope.fabiao = function(){
   		 var now1=new Date();
             //让时间在页面显示
-            $scope.time=now1.getFullYear()+'-'+now1.getMonth()+'-'+now1.getDate();
+            
+            	   $scope.time=now1.getFullYear()+'-'+now1.getMonth()+'-'+now1.getDate();
             console.log($scope.time)
 		 $http({
 					url: "http://" + ip + "/information/tianjia",
@@ -33,5 +34,7 @@
 //					$scope.arr1=data.data	
 
 				})
-  	}
+            }
+         
+  	
   })
