@@ -35,24 +35,21 @@
 	clear: both;
 }
 .personal_xiu_content>li:nth-last-child(1){
-	margin-top:-20px;
+	margin-left:-20px;
 }
 .personal_main .aaa{
-	width:70px;
 	display: block;
-	margin-left:-50px;
 	float: left;
 	background:#FAF2CC;
 	border-radius: 8px;
-	
+	margin-top:10px;
 }
 .personal_main .bbbb{
-	width:70px;
 	display: block;
-	margin-left:40px;
 	float: left;
 	background:#FAF2CC;
 	border-radius: 8px;
+	margin-top:10px;
 }
 .personal_main .bbb{
 	width:118px;
@@ -67,9 +64,19 @@
 	margin-left:45px;
 	margin-top:35px;
 }
-.personal_main ul li{
+/*.personal_main ul li{
 	font-size:16px;
 	margin-top:30px;
+}*/
+.personal_main .personal_ziliao li{
+	font-size:16px;
+	margin-top:30px;
+}
+.personal_xiu_content div {
+    width: 229px;
+    height: 40px;
+    color: red;
+    margin-left: 65px;
 }
 .personal_main ul li i{
 	font-style:normal;
