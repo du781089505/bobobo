@@ -25,7 +25,11 @@
   	 	$scope.buzai = false;
   	 }
   	 $scope.xiaoxi = function(){
+			if( localStorage.status ==1){
 			$state.go("messages")
+		}else if( localStorage.status ==0){
+			alert("你没有权限")
+		}
 	}
   	 $scope.personal = function(){
 		$state.go('personal')

@@ -1,349 +1,367 @@
 <div ng-controller="homeCtrl" class="box">
-<div class="wrapper_home" >
-	<div id="header">
-		<div class="wrap">
-			<i class="menu_open"></i>
-			<div class="logo"><a><img src="images/logo.png" /></a></div>
-			<i class="search_open"></i>
-		</div>
-		<div class="logo_msk"></div>
-	</div>
-	<div id="container">
-		<div id="sort">
-			<table width="100%" border="0" cellspacing="0">
-				<tr>
-					<td class="sort_left">
-						<div class="sort_cate">
-							<div class="sort_b"><a href="#" onclick="return false;"><div class="sort_b_inner quan1"><i class="cate_default"></i><span>全部</span><div class="clear"></div></div></a></div>
-						</div>
-					</td>
-					<td>
-						<div class="sort_sort">
-							<div class="sort_b"><a href="#" onclick="return false;"><div class="sort_b_inner"><i class="cate_sort"></i><span ng-click="t()">最新发布</span><div class="clear"></div></div></a></div>
-						</div>
-					</td>
-					<td class="sort_right">
-						<div class="sort_tag">
-							<div class="sort_b"><a href="#" onclick="return false;"><div class="sort_b_inner"><i class="cate_tag"></i><span ng-click="fabu()">发布</span><div class="clear"></div></div></a></div>
-						</div>
-					</td>
-				</tr>
-			</table>
-		</div>
-<div class="home_content">
-	<div class="home_content_left_xia">
-		<div class="ppp">
-		    <p>CSS</p><p></p>
-		</div>
-		<div class="ppp">
-		    <p>HTML</p><p></p>
-		</div>
-		<div class="ppp">
-		    <p>JQuery</p><p></p>
-		</div>
-		<div class="ppp">
-		    <p>Angular</p><p></p>
-		</div>
-		<div class="ppp">
-		    <p>Js</p><p></p>
-		</div>
-		<div class="ppp">
-		    <p>VUE</p><p></p>
-		</div>
-		<div class="ppp">
-		    <p>React</p><p></p>
-		</div>
-	</div>
-	<div class="home_content_left">
-		<div class="home_content_left1">
-		    <div class="icon"><img src="../images/book1.gif"></div>
-		    <div>
-			    <p>HTML5交互动画发生实践教程</p>
-			    <p>输入点天赋高宇航豆腐干黄金卡是大法官</p>
-			    <p>是的法国红酒</p>
-		    </div>
-		</div>
-		<div class="home_content_left1">
-		    <div class="icon"><img src="../images/book2.gif"></div>
-		    <div>
-			    <p>锋利的juery</p>
-			    <p>儿歌</p>
-			    <p>是的法国红酒</p>
-		    </div>
-		</div>
-		<div class="home_content_left1">
-		    <div class="icon"><img src="../images/book5.gif"></div>
-		    <div>
-			    <p>AngularJs高级程序设计</p>
-			    <p>儿歌</p>
-			    <p>是的法国红酒</p>
-		    </div>
-		</div>
-		<div class="home_content_left1">
-		    <div class="icon"><img src="../images/book7.gif"></div>
-		    <div>
-			    <p>CSS设计指南</p>
-			    <p>儿歌</p>
-			    <p>是的法国红酒</p>
-		    </div>
-		</div>
-	</div>
-	<div class="home_content_right" ng-show="x">
-		<div class="aaaa" ng-model="clear">
-		</div>
-		<div class="bbbb">
-			<div>
-			<p><button class="shang">上一页</button></p>
-			<p><a class="aa"></a>/<a class="bb"></a></p>
-			<p><button class="xia">下一页</button></p>
-			</div>
-		</div>
-	</div>
-	<div ng-show="a" class="home_content_right1">
-		<div ng-repeat="a1 in arr1" ng-click="to()">
-			<p><img alt="" />发布人：{{a1.name}}</p>
-			<p>类型 :{{a1.fenlei}}</p>
-            <p>标题{{a1.title}}</p>
-            <p>内容:{{a1.content}}</p>
-            <p>发布时间:{{a1.time | date:"yyyy-M-d hh:mm:ss"}}</p>
-		</div>
-	</div>
-	<div ng-show="b" class="home_content_right1">
-		<div ng-repeat="r in att" ng-click="to()">
-			<p><img alt="" />发布人：{{r.name}}</p>
-			<p>类型 :{{r.fenlei}}</p>
-            <p>标题{{r.title}}</p>
-            <p>内容:{{r.content}}</p>
-            <p>发布时间:{{r.time | date:"yyyy-M-d hh:mm:ss"}}</p>
-		</div>
-	</div>
-	
-		
-</div>
-<div class="quanquan">
-	
-</div>
-		<div class="push_msk"></div>
-	</div>
-
-	<div id="sort_content">
-		<div class="asort">
-			<div class="hd">
-				<div class="wrap">
-					<div class="fl"><span>选择分类</span><div class="clear"></div></div>
-					<div class="fr"></div>
-					<div class="clear"></div>
-				</div>
-			</div>
-			<div class="ct">
-				<div class="wrap">
-					<ul class="choose_cate">
-						<li c_data="0" style="font-weight:700;"><i style="background:none;width:0;margin-right:0;" class="s"></i><span>全部行业</span><i class="e"></i></li>
-													<li style="font-weight:700;" c_data="1" style="background:#f7f7f7;"><i style="margin-right:0;background:none;width:0;" class="s"></i><span>网页</span><i class="e"></i></li>															
-															
-																		</ul>
-					<div class="clear"></div>
-				</div>
-			</div>
-		</div>
-				
-		<div class="asort">
-			<div class="hd">
-				<div class="wrap">
-					<div class="fl"><span>选择排序</span><div class="clear"></div></div>
-					<div class="fr"></div>
-					<div class="clear"></div>
-				</div>
-			</div>
-			<div class="ct">
-				<div class="wrap">
-					<ul class="choose_sort">
-													<li class="a_selected" s_data="rec"><i class="s"></i><span>最新推荐</span><i class="e"></i></li>
-													<li s_data="like"><i class="s"></i><span>最多喜欢</span><i class="e"></i></li>
-													<li s_data="view"><i class="s"></i><span>最多浏览</span><i class="e"></i></li>
-													<li s_data="comment"><i class="s"></i><span>最多评论</span><i class="e"></i></li>
-													<li s_data="laster"><i class="s"></i><span>最新发布</span><i class="e"></i></li>
-											</ul>
-					<div class="clear"></div>
-				</div>
-			</div>
-		</div>
-
-		<div class="asort">
-			<div class="hd">
-				<div class="wrap">
-					<div class="fl"><i></i><span>版权</span><div class="clear"></div></div>
-					<div class="fr"></div>
-					<div class="clear"></div>
-				</div>
-			</div>
-		</div>
-		
-	</div>
-	
-	<div id="newwrap_t" class="newwrap">
-		<div class="newwrap_msk"></div>
-		<iframe id="newwrap" frameborder="0" width="100%" height="100%"></iframe>
-	</div>
-	<div class="loading_dark"></div>
-	<div id="loading_mask">
-		<div class="loading_mask">
-			<ul class="anm">
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
-		</div>
-	</div>
-	<div id="reg_index">
-		<div class="reg_bar">
+	<div class="wrapper_home">
+		<div id="header">
 			<div class="wrap">
-				<span class="fl"><i></i>注册帐号</span>
-				<i class="reg_bar_close fr"></i>
-				<div class="clear"></div>
+				<i class="menu_open"></i>
+				<div class="logo">
+					<a><img src="images/logo.png" /></a>
+				</div>
+				<i class="search_open"></i>
+			</div>
+			<div class="logo_msk"></div>
+		</div>
+		<div id="container">
+			<div id="sort">
+				<table width="100%" border="0" cellspacing="0">
+					<tr>
+						<td class="sort_left">
+							<div class="sort_cate">
+								<div class="sort_b">
+									<a href="#" onclick="return false;">
+										<div class="sort_b_inner quan1"><i class="cate_default"></i><span>全部</span>
+											<div class="clear"></div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="sort_sort">
+								<div class="sort_b">
+									<a href="#" onclick="return false;">
+										<div class="sort_b_inner"><i class="cate_sort"></i><span ng-click="t()">最新发布</span>
+											<div class="clear"></div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</td>
+						<td class="sort_right">
+							<div class="sort_tag">
+								<div class="sort_b">
+									<a href="#" onclick="return false;">
+										<div class="sort_b_inner"><i class="cate_tag"></i><span ng-click="fabu()">发布</span>
+											<div class="clear"></div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="home_content">
+				<div class="home_content_left_xia">
+					<div class="ppp">
+						<p>CSS</p>
+						<p></p>
+					</div>
+					<div class="ppp">
+						<p>HTML</p>
+						<p></p>
+					</div>
+					<div class="ppp">
+						<p>JQuery</p>
+						<p></p>
+					</div>
+					<div class="ppp">
+						<p>Angular</p>
+						<p></p>
+					</div>
+					<div class="ppp">
+						<p>Js</p>
+						<p></p>
+					</div>
+					<div class="ppp">
+						<p>VUE</p>
+						<p></p>
+					</div>
+					<div class="ppp">
+						<p>React</p>
+						<p></p>
+					</div>
+				</div>
+				<div class="home_content_left">
+					<div class="home_content_left1">
+						<div class="icon"><img src="../images/book1.gif"></div>
+						<div>
+							<p>HTML5交互动画发生实践教程</p>
+							<p>输入点天赋高宇航豆腐干黄金卡是大法官</p>
+							<p>是的法国红酒</p>
+						</div>
+					</div>
+					<div class="home_content_left1">
+						<div class="icon"><img src="../images/book2.gif"></div>
+						<div>
+							<p>锋利的juery</p>
+							<p>儿歌</p>
+							<p>是的法国红酒</p>
+						</div>
+					</div>
+					<div class="home_content_left1">
+						<div class="icon"><img src="../images/book5.gif"></div>
+						<div>
+							<p>AngularJs高级程序设计</p>
+							<p>儿歌</p>
+							<p>是的法国红酒</p>
+						</div>
+					</div>
+					<div class="home_content_left1">
+						<div class="icon"><img src="../images/book7.gif"></div>
+						<div>
+							<p>CSS设计指南</p>
+							<p>儿歌</p>
+							<p>是的法国红酒</p>
+						</div>
+					</div>
+				</div>
+				<div class="home_content_right" ng-show="x">
+					<div class="aaaa" ng-model="clear">
+					</div>
+					<div class="bbbb">
+						<div>
+							<p><button class="shang">上一页</button></p>
+							<p>
+								<a class="aa"></a>/
+								<a class="bb"></a>
+							</p>
+							<p><button class="xia">下一页</button></p>
+						</div>
+					</div>
+				</div>
+				<div ng-show="a" class="home_content_right1">
+					<div ng-repeat="a1 in arr1" ng-click="to()">
+						<p><img alt="" />发布人：{{a1.name}}</p>
+						<p>类型 :{{a1.fenlei}}</p>
+						<p>标题{{a1.title}}</p>
+						<p>内容:{{a1.content}}</p>
+						<p>发布时间:{{a1.time | date:"yyyy-M-d hh:mm:ss"}}</p>
+					</div>
+				</div>
+				<div ng-show="b" class="home_content_right1">
+					<div ng-repeat="r in att" ng-click="to()">
+						<p><img alt="" />发布人：{{r.name}}</p>
+						<p>类型 :{{r.fenlei}}</p>
+						<p>标题{{r.title}}</p>
+						<p>内容:{{r.content}}</p>
+						<p>发布时间:{{r.time | date:"yyyy-M-d hh:mm:ss"}}</p>
+					</div>
+				</div>
+
+			</div>
+			<div class="quanquan">
+
+			</div>
+			<div class="push_msk"></div>
+		</div>
+
+		<div id="sort_content">
+			<div class="asort">
+				<div class="hd">
+					<div class="wrap">
+						<div class="fl"><span>选择分类</span>
+							<div class="clear"></div>
+						</div>
+						<div class="fr"></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="ct">
+					<div class="wrap">
+						<ul class="choose_cate">
+							<li c_data="0" style="font-weight:700;"><i style="background:none;width:0;margin-right:0;" class="s"></i><span>全部行业</span><i class="e"></i></li>
+							<li style="font-weight:700;" c_data="1" style="background:#f7f7f7;"><i style="margin-right:0;background:none;width:0;" class="s"></i><span>网页</span><i class="e"></i></li>
+
+						</ul>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="asort">
+				<div class="hd">
+					<div class="wrap">
+						<div class="fl"><span>选择排序</span>
+							<div class="clear"></div>
+						</div>
+						<div class="fr"></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="ct">
+					<div class="wrap">
+						<ul class="choose_sort">
+							<li class="a_selected" s_data="rec"><i class="s"></i><span>最新推荐</span><i class="e"></i></li>
+							<li s_data="like"><i class="s"></i><span>最多喜欢</span><i class="e"></i></li>
+							<li s_data="view"><i class="s"></i><span>最多浏览</span><i class="e"></i></li>
+							<li s_data="comment"><i class="s"></i><span>最多评论</span><i class="e"></i></li>
+							<li s_data="laster"><i class="s"></i><span>最新发布</span><i class="e"></i></li>
+						</ul>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="asort">
+				<div class="hd">
+					<div class="wrap">
+						<div class="fl"><i></i><span>版权</span>
+							<div class="clear"></div>
+						</div>
+						<div class="fr"></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="newwrap_t" class="newwrap">
+			<div class="newwrap_msk"></div>
+			<iframe id="newwrap" frameborder="0" width="100%" height="100%"></iframe>
+		</div>
+		<div class="loading_dark"></div>
+		<div id="loading_mask">
+			<div class="loading_mask">
+				<ul class="anm">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
 			</div>
 		</div>
-		<div class="wrap reg_ct">
-			
-			<div class="zhuce">
-				<ul>
-					<form name="yanzheng">
-						<li>账&#x3000;号: <input type="text"
-               name="need"
-               required
-               maxlength="15"
-               minlength="5"
-               ng-model="uname"
-               ng-pattern="/^[a-zA-Z][a-zA-Z0-9_]{4,15}$/"
-/>
-    <div ng-messages="yanzheng.need.$error">
-   		<span ng-message="required"> 账号提示：不写你试试</span>
-        <span ng-message="maxlength"> 账号提示：不能大于15位</span>
-        <span ng-message="minlength"> 账号提示：不能小于5位</span>
-        <span ng-message="pattern"> 账号提示：帐号不合法(由字母开头，允许5-16字节，允许字母数字下划线组成)</span>
+		<div id="reg_index">
+			<div class="reg_bar">
+				<div class="wrap">
+					<span class="fl"><i></i>注册帐号</span>
+					<i class="reg_bar_close fr"></i>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="wrap reg_ct">
 
-    </div></li>
-						<li>密&#x3000;码: <input type="password"
-               name="pas"
-               required
-               maxlength="15"
-               minlength="5"
-               ng-model="pas"
-/>
-    <div ng-messages="yanzheng.pas.$error">
-   		<span ng-message="required"> 密码提示：不写你试试</span>
-        <span ng-message="maxlength"> 密码提示：不能大于15位</span>
-        <span ng-message="minlength"> 密码提示：不能小于5位</span>
-    </div></li>
-						<li>昵&#x3000;称: <input type="text"
-               name="name"
-               required
-               ng-model="name"
-               ng-pattern="/^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$/"
-/>
-    <div ng-messages="yanzheng.name.$error">
-   		<span ng-message="required"> 昵称提示：不写你试试</span>
-        <span ng-message="pattern"> 昵称提示：最长不得超过7个汉字，或14个字节(数字，字母和下划线)</span>
-    </div></li>
-						<li>年&#x3000;龄: <input type="text"
-               name="age"
-               required
-               ng-model="age"
-               ng-pattern="/[0-9]{1,2}/"
-               maxlength="2"
-               minlength="1"
-/>
-    <div ng-messages="yanzheng.age.$error">
-   		<span ng-message="required"> 昵称提示：不写你试试</span>
-        <span ng-message="pattern"> 昵称提示：只能写数字</span>
-    </div></li>
-						<li>手机号: <input type="text"
-               name="tel"
-               required
-               ng-model="tel"
-               ng-pattern="/^((13[0-9])|(14[0-9])|(15[0-9])|(17[0-9])|(18[0-9]))\d{8}$/"
-/>
-    <div ng-messages="yanzheng.tel.$error">
-   		<span ng-message="required"> 手机提示：不写你试试</span>
-        <span ng-message="pattern"> 手机提示：请填写正确的手机号</span>
-    </div></li>
-						<li>QQ号 : <input type="text"
-               name="qq"
-               required
-               ng-model="qq"
-               maxlength="13"
-               ng-pattern="/[1-9][0-9]{4,10}/"
-/>
-    <div ng-messages="yanzheng.qq.$error">
-   		<span ng-message="required"> QQ提示：不写你试试</span>
-        <span ng-message="pattern"> QQ提示：请填写正确的QQ号</span>
-    </div></li>
-					</form>
-				</ul>
-				<button ng-click="zc()">完成</button>
-				
-				
+				<div class="zhuce">
+					<ul>
+						<form name="yanzheng">
+							<li>账&#x3000;号: <input type="text" name="need" required maxlength="15" minlength="5" ng-model="uname" ng-pattern="/^[a-zA-Z][a-zA-Z0-9_]{4,15}$/" />
+								<div ng-messages="yanzheng.need.$error">
+									<span ng-message="required"> 账号提示：不写你试试</span>
+									<span ng-message="maxlength"> 账号提示：不能大于15位</span>
+									<span ng-message="minlength"> 账号提示：不能小于5位</span>
+									<span ng-message="pattern"> 账号提示：帐号不合法(由字母开头，允许5-16字节，允许字母数字下划线组成)</span>
+
+								</div>
+							</li>
+							<li>密&#x3000;码: <input type="password" name="pas" required maxlength="15" minlength="5" ng-model="pas" />
+								<div ng-messages="yanzheng.pas.$error">
+									<span ng-message="required"> 密码提示：不写你试试</span>
+									<span ng-message="maxlength"> 密码提示：不能大于15位</span>
+									<span ng-message="minlength"> 密码提示：不能小于5位</span>
+								</div>
+							</li>
+							<li>昵&#x3000;称: <input type="text" name="name" required ng-model="name" ng-pattern="/^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$/" />
+								<div ng-messages="yanzheng.name.$error">
+									<span ng-message="required"> 昵称提示：不写你试试</span>
+									<span ng-message="pattern"> 昵称提示：最长不得超过7个汉字，或14个字节(数字，字母和下划线)</span>
+								</div>
+							</li>
+							<li>年&#x3000;龄: <input type="text" name="age" required ng-model="age" ng-pattern="/[0-9]{1,2}/" maxlength="2" minlength="1" />
+								<div ng-messages="yanzheng.age.$error">
+									<span ng-message="required"> 昵称提示：不写你试试</span>
+									<span ng-message="pattern"> 昵称提示：只能写数字</span>
+								</div>
+							</li>
+							<li>手机号: <input type="text" name="tel" required ng-model="tel" ng-pattern="/^((13[0-9])|(14[0-9])|(15[0-9])|(17[0-9])|(18[0-9]))\d{8}$/" />
+								<div ng-messages="yanzheng.tel.$error">
+									<span ng-message="required"> 手机提示：不写你试试</span>
+									<span ng-message="pattern"> 手机提示：请填写正确的手机号</span>
+								</div>
+							</li>
+							<li>QQ号 : <input type="text" name="qq" required ng-model="qq" maxlength="13" ng-pattern="/[1-9][0-9]{4,10}/" />
+								<div ng-messages="yanzheng.qq.$error">
+									<span ng-message="required"> QQ提示：不写你试试</span>
+									<span ng-message="pattern"> QQ提示：请填写正确的QQ号</span>
+								</div>
+							</li>
+						</form>
+					</ul>
+					<button ng-click="zc()">完成</button>
+
+				</div>
 			</div>
 		</div>
 	</div>
-</div> 
-<div id="menu">
+	<div id="menu">
 		<div class="search_wrap">
 			<form action="" method="get">
-			<input type="text" name="search" class="search_input" placeholder="关键字查找" ng-model="search" ng-blur="hd()"/>
+				<input type="text" name="search" class="search_input" placeholder="关键字查找" ng-model="search" ng-blur="hd()" />
 				<i class="reset_input"><i></i></i>
 			</form>
 		</div>
 		<ul>
-			<li class="nav_index menu_cur"><a><i></i><span>首页</span><b></b><div class="clear"></div></a></li>
-			<li class="nav_site" ng-click="personal()"><a><i></i><span>个人</span><b></b><div class="clear"></div></a></li>
-			<li class="nav_about" ng-click="xiaoxi()"><a><i></i><span>消息</span><b></b><div class="clear"></div></a></li>
+			<li class="nav_index menu_cur">
+				<a><i></i><span>首页</span><b></b>
+					<div class="clear"></div>
+				</a>
+			</li>
+			<li class="nav_site" ng-click="personal()">
+				<a><i></i><span>个人</span><b></b>
+					<div class="clear"></div>
+				</a>
+			</li>
+			<li class="nav_about" ng-click="xiaoxi()">
+				<a><i></i><span>消息</span><b></b>
+					<div class="clear"></div>
+				</a>
+			</li>
 		</ul>
-</div>
-<div id="user">
+	</div>
+	<div id="user">
 		<div class="account">
-				<div class="login_b_t">
-					<div class="pd10">
-						<div class="fl">还没有账号<a id="reg_now" href="" >立即注册</a></div><div class="clear"></div>
+			<div class="login_b_t">
+				<div class="pd10">
+					<div class="fl">还没有账号
+						<a id="reg_now" href="">立即注册</a>
 					</div>
+					<div class="clear"></div>
 				</div>
 			</div>
-			<div class="pd10">
-				<form method="post" action="">
-					<div class="login_b_i">
-						<div class="login_input">
+		</div>
+		<div class="pd10">
+			<form method="post" action="">
+				<div class="login_b_i">
+					<div class="login_input">
 
-							<div class="login_user"><input type="text" name="email" placeholder="邮箱/帐号" ng-model="username" class="yhm"/><i></i></div>
-							<div class="login_password"><input type="password" name="password" placeholder="密码" ng-model="password" class="mm"/><i></i></div>
-						</div>
+						<div class="login_user"><input type="text" name="email" placeholder="邮箱/帐号" ng-model="username" class="yhm" /><i></i></div>
+						<div class="login_password"><input type="password" name="password" placeholder="密码" ng-model="password" class="mm" /><i></i></div>
 					</div>
-					<a class="login_submit" ng-click="denglu()">登录</a>
+				</div>
+				<a class="login_submit" ng-click="denglu()">登录</a>
 
-					
-				</form>
-			</div>
-	</div>	
-		<div class="denglu" id="denglu" ng-show="tishi">
-			<p>登陆成功</p>
-			<button class="queding" ng-model="xi" >确定</button>
+			</form>
 		</div>
-		<div class="denglu1" ng-show="tishi1">
-			<p>账号不存在</p>
-			<button class="queding1" >确定</button>
-		</div>
-		<div class="denglu2" ng-show="tishi2">
-			<p>密码错误</p>
-			<button class="queding2" >确定</button>
-		</div>
-		<div class="zhuce1" ng-show="zhuce1">
-			<p>账号已存在</p>
-			<button class="queding3" >确定</button>
-		</div>
-		<div class="zhuce2" ng-show="zhuce2">
-			<p>注册成功</p>
-			<button class="queding4" ng-click="queding()">确定</button>
-		</div>
+	</div>
+	<div class="denglu" id="denglu" ng-show="tishi">
+		<p>登陆成功</p>
+		<button class="queding" ng-model="xi">确定</button>
+	</div>
+	<div class="denglu1" ng-show="tishi1">
+		<p>账号不存在</p>
+		<button class="queding1">确定</button>
+	</div>
+	<div class="denglu2" ng-show="tishi2">
+		<p>密码错误</p>
+		<button class="queding2">确定</button>
+	</div>
+	<div class="zhuce1" ng-show="zhuce1">
+		<p>账号已存在</p>
+		<button class="queding3">确定</button>
+	</div>
+	<div class="zhuce2" ng-show="zhuce2">
+		<p>注册成功</p>
+		<button class="queding4" ng-click="queding()">确定</button>
+	</div>
 </div>
 <script src="../scripts/js.js"></script>
