@@ -90,7 +90,6 @@
 			url:"http://"+ip+"/homepage/zhuce",
 			method:"post",
 			data:"username="+$scope.uname+"&password="+$scope.pas+"&name="+$scope.name+"&age="+$scope.age+"&tel="+$scope.tel+"&qq="+$scope.qq+"&status="+0,
-
 			headers:{
 				'Content-Type': 'application/x-www-form-urlencoded'
 			}
@@ -111,6 +110,9 @@
 			
 			
 		})
+		}
+		$scope.queding3 = function(){
+			$scope.zhuce1=false;
 		}
 		//搜索
 		$scope.b = false
