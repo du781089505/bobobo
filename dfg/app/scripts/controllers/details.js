@@ -68,7 +68,10 @@
 				})
 			
 		$scope.us_panel_post2 = function(){
-			$http({
+			if($scope.pinglun==undefined){
+				alert("请输入要评论内容")
+			}else{
+					$http({
 					url: "http://" + ip + "/details/pinglun",
 					method: "post",
 					data:"id="+localStorage.id+"&uid="+$scope.id+"&pcon="+$scope.pinglun+"&name="+localStorage.name,
@@ -80,9 +83,11 @@
 						console.log(data.data)
 						location.reload();
                       $scope.zai = true;
-  	 	            $scope.buzai = false;
+	 	            $scope.buzai = false;
 				})
-  	 	
+			}
+
+	 	
   	 }
 		$scope.too = []
 			$http({
