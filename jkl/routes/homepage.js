@@ -96,15 +96,16 @@ router.post('/zhuce',function(req,res){
 	console.log(1111111)
 	var username = req.body.username;
 	var password = req.body.password;
+	var img = req.body.img;
 	var tel = req.body.tel;
 	var qq = req.body.qq;
 	var name= req.body.name;
 	var age = req.body.age;
 	var status = req.body.status;
-	console.log(username,password,tel,qq,name,age,status)
+	console.log(username,password,tel,qq,name,age,status,img)
 	getuserZhce(username,function(err,rest){
 		if(rest ==""||rest == null){
-			save(username,password,tel,qq,name,age,status,function(err,resl){
+			save(username,password,tel,qq,name,age,status,img,function(err,resl){
 				console.log('dddd'+resl)
 				res.send({flag:1})  //注册成功
 			})
@@ -130,10 +131,10 @@ function getuserZhce(uname,callback){
 		})
 	})
 }
-function save(username,pad,tel,qq,name,age,status,callback){
+function save(username,pad,tel,qq,name,age,status,img,callback){
 	pool.getConnection(function(err,conn){ //获取连接
-		var sql ='insert into user(username,password,tel,qq,name,age,status) value (?,?,?,?,?,?,?)';
-		conn.query(sql,[username,pad,tel,qq,name,age,status],function(err,result){
+		var sql ='insert into user(username,password,tel,qq,name,age,status,img) value (?,?,?,?,?,?,?,?)';
+		conn.query(sql,[username,pad,tel,qq,name,age,status,img],function(err,result){
 			console.log(result)
 			if(err){
 				console.log("insertUser Eroor:"+err.message)
