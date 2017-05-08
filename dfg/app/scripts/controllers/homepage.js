@@ -81,6 +81,20 @@
 		  	$scope.tishi = true;
 		  	console.log(data)
 		  	localStorage.username = $scope.username
+		  	$http({
+			url:"http://"+ip+"/personal/xun",
+			method:"get",
+			params:{username:localStorage.username},
+			headers:{
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+			
+		}).then(function(data){
+		 
+		    localStorage.id = data.data[0].id
+			localStorage.name = data.data[0].name
+			 localStorage.status = data.data[0].status
+		})
 		   
 		  }else if(data.data.flag == 2){
 		  	$scope.tishi1 = true;
@@ -91,10 +105,12 @@
 		}
 		//注册
 		$scope.zc = function(){
+			$scope.img="images/1493889883093.jpg"
+			console.log($scope.img)
 			$http({
 			url:"http://"+ip+"/homepage/zhuce",
 			method:"post",
-			data:"username="+$scope.uname+"&password="+$scope.pas+"&name="+$scope.name+"&age="+$scope.age+"&tel="+$scope.tel+"&qq="+$scope.qq+"&status="+0,
+			data:"username="+$scope.uname+"&password="+$scope.pas+"&name="+$scope.name+"&age="+$scope.age+"&tel="+$scope.tel+"&qq="+$scope.qq+"&status="+0+"&img="+$scope.img,
 			headers:{
 				'Content-Type': 'application/x-www-form-urlencoded'
 			}
@@ -142,18 +158,6 @@
 			
 		})
 	}
-	$http({
-			url:"http://"+ip+"/personal/xun",
-			method:"get",
-			params:{username:localStorage.username},
-			headers:{
-				'Content-Type': 'application/x-www-form-urlencoded'
-			}
-			
-		}).then(function(data){
-		    console.log(data.data[0].id)
-		    localStorage.id = data.data[0].id
-			localStorage.name = data.data[0].name
-			 localStorage.status = data.data[0].status
-		})
+	
+		
 })

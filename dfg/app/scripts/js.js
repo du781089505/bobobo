@@ -1,4 +1,9 @@
-
+$('.ii').click(function(){
+	        localStorage.id = ""
+			localStorage.name = ""
+			localStorage.username = ''
+			 localStorage.status = ""
+})
 $(".reg_bar_close").click(function(){
 		$("#reg_index").css({"top":"0px"})
 	})

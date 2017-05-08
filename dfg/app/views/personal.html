@@ -16,12 +16,13 @@
 		<div class="personal_main">
 			<div class="personal_main_left">
 				<div class="personal_tou">
-
+                     <img src="../images/142174136543.jpg">
 				</div>
-				<input type="file"  onchange='setFiles(this)' />
-                          <button class="img">提交</button>
-				<ul class="personal_ziliao">
 
+				<input type="file" id="a" class="imgg"/>
+		        <button class="shangchuan">上传头像</button>
+
+				<ul class="personal_ziliao">
 				</ul>
 				<button class="bbb">修改资料</button>
 				<div class='personal_main_xiu'>
@@ -309,7 +310,66 @@
 				location.href="#!/details?id="+qw
 			})
 	
+
       
 	
 	
+
+		$(".imgg").change(function() {
+				console.log(this.files[0])
+				files = this.files[0];
+			})
+			$(".shangchuan").click(function() {
+				//				console.log(files)
+				var formData = new FormData();
+				formData.append("file", files)
+									console.log(formData)
+				$.ajax({
+					type: "post",
+					url: "http://" + ip + "/personal/upload",
+					data: formData,
+					processData: false, // 告诉jQuery不要去处理发送的数据
+					contentType: false, // 告诉jQuery不要去设置Content-Type请求头
+					success: function(a) {
+						console.log(a)
+
+						$.ajax({
+							type: "post",
+							url: "http://" + ip + "/personal/chuantu",
+							data: {
+							    "id":localStorage.id,
+								"img":"images/"+a.fName,
+							},
+							success: function(e) {
+								console.log(e)
+								console.log(a.fName)
+								
+								if(e.flag==1){
+									alert("成功")
+								}else{
+									alert("失败")
+								}
+							}
+						})
+
+					}
+				})
+			})
+			
+			
+		$.ajax({
+						type: "get",
+						url: "http://" + ip + "/homepage/ca",
+						data: "id=" +localStorage.id,
+						success: function(t) {
+							$(".personal_tou").html("")
+							var con = ""
+							console.log(t)
+							con = '<img src='+t[0].img+'>'
+							$(".personal_tou").append(con)
+						}
+
+					});	
+					
+
 </script>

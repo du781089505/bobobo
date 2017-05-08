@@ -78,7 +78,7 @@ function cha(username,callback){
 router.post('/upload',function(req,res){
 	var form=new formidable.IncomingForm();	//创建IncomingForm对象
 	console.log(11111111)
-	form.uploadDir="./public/images/";	//设置上传文件存放的文件夹，可以使用fs.rename()来改变上传文件的存放位置和文件名    
+	form.uploadDir="../dfg/app/images";	//设置上传文件存放的文件夹，可以使用fs.rename()来改变上传文件的存放位置和文件名    
 	//如果form.uploadDir不赋值，它默认的位置是c:\user\用户名\AppData\Local\Temp
 	//form.encoding="utf-8"； 设定文件的编码
 	form.parse(req, function(error,fields,files){
@@ -99,9 +99,9 @@ router.post('/upload',function(req,res){
 				    break;
 			}
 			 
-			var newPath="public/images/"+fName;
+			var newPath="../dfg/app/images/"+fName;
 			fs.renameSync(file.path,newPath);//重命名
-			res.send(fName)
+			res.send({fName:fName})
 		}
 	})
 })
@@ -114,18 +114,18 @@ router.post('/chuantu',function(req,res){
     var id=req.body.id;
 	var img=req.body.img;
 	console.log(id,img)
-		save(id,img,function(err,result){
+		save(img,id,function(err,result){
 	      if(err){
 			res.send(err);
 		}else if(result){
 			console.log('ttototo'+result);
-			res.send(result)
+			res.send({flag:1})
 		}
    });
 })
 function save(img,id,callback){//接受参数  ，自己命名的可以随便写
 	pool.getConnection(function(err,conn){
-		var sql="insert into user(img) values(?) where id=?"//这儿是数据库中的列名
+		var sql="update user set img= ? where id = ? "//这儿是数据库中的列名
 	conn.query(sql,[img,id],function(err,result){//这儿是接受参数，自己所起的名字
 			if(err){
 				console.log("getAllUsers Error:"+err.message);
